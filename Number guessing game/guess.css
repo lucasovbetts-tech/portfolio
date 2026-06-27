@@ -1,0 +1,260 @@
+/* Navy blue theme for the guessing game */
+
+/* Root color palette and shared design tokens */
+:root {
+    --bg: #061a3f;
+    --surface: rgba(10, 28, 72, 0.92);
+    --surface-strong: rgba(15, 37, 94, 0.98);
+    --accent: #5e8cff;
+    --accent-strong: #8ab4ff;
+    --text: #f4f7ff;
+    --muted: #b8c1d9;
+    --danger: #ff6b6b;
+    --success: #6bf2a5;
+    --border: rgba(255, 255, 255, 0.12);
+}
+
+/* Global reset for box sizing */
+* {
+    box-sizing: border-box;
+}
+
+/* Ensure the page occupies full vertical height */
+html, body {
+    min-height: 100%;
+}
+
+/* Page background and typography */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(circle at top, rgba(94, 140, 255, 0.18), transparent 28%),
+                linear-gradient(180deg, #0c224f 0%, #05132a 100%);
+    color: var(--text);
+}
+
+/* Subtle blurred image overlay behind the page */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    opacity: 0.07;
+    pointer-events: none;
+    z-index: -1;
+    filter: blur(8px);
+}
+
+/* Header container styling */
+header.top {
+    background: transparent;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 1rem 1.5rem;
+}
+
+/* Header layout for branding and navigation */
+header.top .branding,
+header.top .headerLinks {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Branding section takes remaining space */
+header.top .branding {
+    flex: 1;
+}
+
+/* Logo title appearance */
+header.top h1 {
+    margin: 0;
+    font-size: 1.2rem;
+    letter-spacing: 0.06em;
+    color: var(--text);
+}
+
+/* Logo image styling */
+header.top .logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    object-fit: contain;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Main game card styling */
+.game-container {
+    width: min(100%, 520px);
+    margin: 4rem auto 3rem;
+    padding: 2.4rem 2rem;
+    border-radius: 28px;
+    background: linear-gradient(180deg, rgba(15, 35, 84, 0.95), rgba(7, 18, 46, 0.94));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(18px);
+}
+
+/* Game title styling */
+.game-container h1 {
+    margin: 0 0 0.65rem;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    letter-spacing: -0.04em;
+    text-align: center;
+    color: var(--text);
+}
+
+/* Subtitle text below the title */
+.subtitle {
+    margin: 0 0 2rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 1rem;
+}
+
+/* Input field styling for the guess entry */
+.guess-input {
+    width: 100%;
+    padding: 1rem 1.1rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+/* Placeholder styling for the input */
+.guess-input::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+/* Focus state for input field */
+.guess-input:focus {
+    border-color: rgba(94, 140, 255, 0.7);
+    box-shadow: 0 0 0 4px rgba(94, 140, 255, 0.12);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Button styling for submitting guess */
+.guess-btn {
+    width: 100%;
+    margin-top: 1.4rem;
+    padding: 1rem 1.1rem;
+    border: none;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    box-shadow: 0 18px 32px rgba(94, 140, 255, 0.28);
+}
+
+/* Hover and focus styling for button */
+.guess-btn:hover,
+.guess-btn:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 22px 40px rgba(94, 140, 255, 0.35);
+}
+
+/* Active state for button press */
+.guess-btn:active {
+    transform: translateY(0);
+}
+
+/* Result box container styling */
+.result-box {
+    margin-top: 1.8rem;
+    padding: 1.5rem 1.4rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Default result text styling */
+.result-text {
+    margin: 0;
+    color: var(--text);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    text-align: center;
+}
+
+/* Success text color variant */
+.result-text.success {
+    color: var(--success);
+}
+
+/* Error text color variant */
+.result-text.error {
+    color: var(--danger);
+}
+
+/* Footer container styling */
+footer.footer {
+    max-width: 990px;
+    margin: 0 auto 2rem;
+    padding: 1.5rem 1.5rem 0;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+/* Footer divider line */
+footer.footer .line {
+    height: 1px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.12);
+    margin-bottom: 1.4rem;
+}
+
+/* Footer heading styling */
+footer.footer h3 {
+    margin: 0 0 0.75rem;
+    color: var(--text);
+}
+
+/* Footer links styling */
+footer.footer a {
+    color: var(--accent-strong);
+    text-decoration: none;
+}
+
+/* Footer link hover state */
+footer.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Social links layout in footer */
+footer.footer .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+/* Separator dots between social links */
+footer.footer .social-links span {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 540px) {
+    .game-container {
+        margin: 3rem 1rem 2rem;
+        padding: 1.8rem 1.2rem;
+    }
+
+    .guess-input,
+    .guess-btn {
+        font-size: 0.98rem;
+    }
+}

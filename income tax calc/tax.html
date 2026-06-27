@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../main page/style.css">
+    <link rel="stylesheet" href="../income tax calc/tax.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator — Lucas's Portfolio</title>
+    <link rel="icon" href="../images/logo.png">
+</head>
+<body>
+    <header class="top">
+        <div class="branding">
+            <img class="logo" src="../images/logo.png" alt="Logo">
+            <h1>Lucas's portfolio</h1>
+        </div>
+        <nav class="headerLinks">
+            <a href="../main page/index.html">Home</a>
+            <div class="dropdown">
+                <a href="">Projects</a>
+                <div class="dropdownContent">
+                    <a href="../Calculator/calculator.html">Calculator</a>
+                    <a href="../To do list/list.html">To do list</a>
+                    <a href="../Number guessing game/guess.html">Guessing game</a>
+                    <a href="../income tax calc/tax.html">Tax calculator</a>
+                    <a href="../dice roller/dice.html">Dice roller</a>
+                </div>
+            </div>
+            <a href="https://github.com/" target="_blank">Github</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="tax-card" aria-labelledby="tax-title">
+
+            <h2 id="tax-title">Income Tax Calculator</h2>
+            <p class="subtitle">England, Wales &amp; Northern Ireland · 2025/26</p>
+
+            <form id="tax-form">
+                <div class="input-row">
+                    <label for="income">Annual gross income</label>
+                    <div class="input-wrap">
+                        <span class="input-prefix">£</span>
+                        <input
+                            id="income"
+                            type="number"
+                            min="0"
+                            step="0.01"
+                            placeholder="e.g. 30000"
+                            autocomplete="off"
+                        />
+                    </div>
+                </div>
+                <p id="inputError" class="input-error" hidden></p>
+
+                <div class="actions">
+                    <button id="calcBtn" type="submit" class="btn">Calculate</button>
+                </div>
+            </form>
+
+            <!-- Results — shown after calculation -->
+            <div id="results" class="results" aria-live="polite" hidden>
+
+                <p id="personalAllowance" class="pa-note"></p>
+
+                <!-- Summary rows -->
+                <div class="result-row">
+                    <span>Income tax</span>
+                    <span id="taxPaid">£0.00</span>
+                </div>
+                <div class="result-row">
+                    <span>National Insurance</span>
+                    <span id="niPaid">£0.00</span>
+                </div>
+                <div class="result-row result-row--total">
+                    <span>Total deductions</span>
+                    <span id="totalDed">£0.00</span>
+                </div>
+                <div class="result-row result-row--takehome">
+                    <span>Annual take-home</span>
+                    <span id="afterTax">£0.00</span>
+                </div>
+                <div class="result-row result-sub">
+                    <span>Monthly</span>
+                    <span id="monthlyTakeHome">£0.00</span>
+                </div>
+                <div class="result-row result-sub">
+                    <span>Weekly</span>
+                    <span id="weeklyTakeHome">£0.00</span>
+                </div>
+                <div class="result-row result-row--rate">
+                    <span>Effective rate</span>
+                    <span id="effectiveRate">0.0%</span>
+                </div>
+
+                <!-- Band breakdown -->
+                <div class="breakdown-header">Band breakdown</div>
+                <div id="bandBreakdown" class="band-breakdown"></div>
+
+                <p class="disclaimer">
+                    Estimates only. Excludes pension contributions, student loans, and other reliefs.
+                    Scotland uses different rates.
+                </p>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="line"></div>
+        <div class="contact-section">
+            <h3>Get In Touch</h3>
+            <div class="contact-info">
+                <p>
+                    <a href="mailto:lobetts@outlook.com">📧 lobetts@outlook.com</a>
+                </p>
+                <div class="social-links">
+                    <a href="https://github.com/" target="_blank" title="GitHub">GitHub</a>
+                    <span>•</span>
+                    <a href="https://linkedin.com/" target="_blank" title="LinkedIn">LinkedIn</a>
+                    <span>•</span>
+                    <a href="https://twitter.com/" target="_blank" title="Twitter">Twitter</a>
+                </div>
+            </div>
+        </div>
+        <div class="line"></div>
+    </footer>
+
+    <script src="tax.js"></script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+/* Hero Section */
+.hero {
+  padding: 120px 20px;
+  text-align: center;
+  background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('../images/setup.JPEG');
+  background-size: 1950px 450px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom: 2px solid #232e47;
+}
+
+.hero-content {
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 3.5em;
+  margin: 0 0 10px 0;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.hero-subtitle {
+  font-size: 1.5em;
+  color: #6990cf;
+  margin: 0 0 20px 0;
+  padding: 10px;
+}
+
+.hero-description {
+  font-size: 1.1em;
+  color: #a8b5d1;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.section-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 2.5em;
+  text-align: center;
+  color: #fff;
+  margin: 0 0 50px 0;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #6990cf;
+  border-radius: 2px;
+}
+
+/* Skills Section */
+.skills {
+  padding: 80px 20px;
+  background: #0f172a;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.skill-card {
+  background: linear-gradient(135deg, #1a2a45 0%, #232e47 100%);
+  padding: 30px;
+  border-radius: 12px;
+  border-left: 4px solid #6990cf;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(105, 144, 207, 0.2);
+}
+
+.skill-card h3 {
+  color: #6990cf;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.3em;
+}
+
+.skill-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-card li {
+  color: #a8b5d1;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(105, 144, 207, 0.1);
+}
+
+.skill-card li:last-child {
+  border-bottom: none;
+}
+
+/* Projects Section */
+.projects {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #1a2a45 0%, #0f172a 100%);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.project-card {
+  background: #232e47;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(105, 144, 207, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  border-color: #6990cf;
+  box-shadow: 0 10px 40px rgba(105, 144, 207, 0.15);
+  transform: translateY(-8px);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.project-card h3 {
+  color: #fff;
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.project-tag {
+  display: inline-block;
+  background: rgba(105, 144, 207, 0.2);
+  color: #6990cf;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: bold;
+}
+
+.project-description {
+  color: #a8b5d1;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+  flex-grow: 1;
+}
+
+.project-link {
+  color: #6990cf;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.project-link:hover {
+  color: #fff;
+  transform: translateX(5px);
+}
+
+/* About Section */
+.about {
+  padding: 80px 20px;
+  background: #0f172a;
+  text-align: center;
+  border-top: 2px solid #232e47;
+}
+
+.about-text {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #a8b5d1;
+  font-size: 1.1em;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 80px 20px;
+    background-size: cover;
+  }
+
+  .hero-title {
+    font-size: 2.5em;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2em;
+  }
+
+  .hero-description {
+    font-size: 1em;
+  }
+
+  .section-title {
+    font-size: 2em;
+  }
+
+  .project-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .projects-grid,
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-card,
+  .project-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2em;
+  }
+
+  .hero-subtitle {
+    font-size: 1em;
+  }
+
+  .section-title {
+    font-size: 1.7em;
+  }
+
+  .about-text,
+  .hero-description {
+    font-size: 0.95em;
+  }
+}
+
+@media (min-width: 1400px) {
+  .section-container {
+    max-width: 1300px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../main page/style.css">
+    <link rel="stylesheet" href="../Calculator/CalculatorStyle.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="icon" href="../images/logo.png">
+</head>
+<body>
+    <header class="top">
+        <div class="branding">
+            <img class="logo" src="../images/logo.png" alt="Logo">
+            <h1>Lucas's portfolio</h1>
+        </div>
+        <nav class="headerLinks">
+            <a href="../main page/index.html">Home</a>
+            <div class="dropdown">
+                <a href="">Projects</a>
+                <div class="dropdownContent">
+                    <a href="../Calculator/calculator.html">Calculator</a>
+                    <a href="../To do list/list.html">To do list</a>
+                    <a href="../Number guessing game/guess.html">Guessing game</a>
+                    <a href="../income tax calc/tax.html">Tax calculator</a>
+                    <a href="../dice roller/dice.html">Dice roller</a>
+                </div>
+            </div>
+            <a href="https://github.com/" target="_blank">Github</a>
+        </nav>
+    </header>
+
+    <div class="calculator">
+        <!-- Screen -->
+        <input id="calcScreen" class="calcScreen" type="text" readonly placeholder="0">
+
+        <!-- Row 1: utility + operators -->
+        <button onclick="deleteLast()" class="calcBtn" title="Backspace">⌫</button>
+        <button onclick="clearScreen()" class="calcBtn">AC</button>
+        <button id="exponentOn" onclick="toggleExponent()" class="calcBtn">x<sup>y</sup></button>
+        <button onclick="appendToDisplay('/')" class="calcBtn">÷</button>
+
+        <!-- Row 2 -->
+        <button onclick="appendToDisplay('1')" class="calcBtn">1</button>
+        <button onclick="appendToDisplay('2')" class="calcBtn">2</button>
+        <button onclick="appendToDisplay('3')" class="calcBtn">3</button>
+        <button onclick="appendToDisplay('x')" class="calcBtn">×</button>
+
+        <!-- Row 3 -->
+        <button onclick="appendToDisplay('4')" class="calcBtn">4</button>
+        <button onclick="appendToDisplay('5')" class="calcBtn">5</button>
+        <button onclick="appendToDisplay('6')" class="calcBtn">6</button>
+        <button onclick="appendToDisplay('-')" class="calcBtn">−</button>
+
+        <!-- Row 4 -->
+        <button onclick="appendToDisplay('7')" class="calcBtn">7</button>
+        <button onclick="appendToDisplay('8')" class="calcBtn">8</button>
+        <button onclick="appendToDisplay('9')" class="calcBtn">9</button>
+        <button onclick="appendToDisplay('+')" class="calcBtn">+</button>
+
+        <!-- Row 5 -->
+        <button onclick="appendToDisplay('( )')" class="calcBtn">( )</button>
+        <button onclick="appendToDisplay('0')" class="calcBtn">0</button>
+        <button onclick="appendToDisplay('.')" class="calcBtn">.</button>
+        <button onclick="calculate()" class="calcBtn">=</button>
+    </div>
+
+    <footer class="footer">
+        <div class="line"></div>
+        <p>© 2026 Your Name</p>
+        <p>
+            <a href="https://github.com/" target="_blank">GitHub</a>
+            |
+            <a href="mailto:lobetts@outlook.com">Email</a>
+            |
+            <a href="#about">About me</a>
+        </p>
+        <div class="line"></div>
+    </footer>
+
+    <script src="../Calculator/calculatorLogic.js"></script>
+</body>
+</html>

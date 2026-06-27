@@ -1,0 +1,243 @@
+/* =============================================
+   TO DO LIST — Redesigned
+   Consistent with Calculator / Dice Roller:
+     --bg-deep:     #070f1d
+     --bg-body:     #0c1935
+     --bg-surface:  #111f3a
+     --bg-btn:      #172436
+     --accent:      #3b82f6
+     --accent-dark: #1d4ed8
+     --text-main:   #e2e8f0
+     --text-dim:    #64748b
+============================================= */
+
+/* ── PANEL ── */
+.toDoList {
+    width: 480px;
+    margin: 48px auto 0;
+    padding: 28px 24px;
+    background: linear-gradient(160deg, #0d1f3c 0%, #0c1935 60%, #080f22 100%);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 24px;
+    box-shadow:
+        0 0 0 1px rgba(59, 130, 246, 0.07),
+        0 0 24px rgba(59, 130, 246, 0.15),
+        0 32px 64px rgba(0, 0, 0, 0.55);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Top sheen */
+.toDoList::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+/* ── PANEL TITLE ── */
+.toDoList h1 {
+    margin: 0 0 4px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #3b82f6;
+    opacity: 0.8;
+}
+
+/* ── INPUT ROW ── */
+.toDoList .inputRow {
+    display: flex;
+    gap: 8px;
+}
+
+/* ── TEXT INPUT ── */
+.toDoList input[type="text"] {
+    flex: 1;
+    min-width: 0;
+    padding: 11px 14px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 15px;
+    font-weight: 600;
+    color: #e2e8f0;
+    background: linear-gradient(135deg, #050d1c 0%, #0a1628 100%);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 12px;
+    box-shadow:
+        inset 0 2px 6px rgba(0, 0, 0, 0.5),
+        0 0 8px rgba(59, 130, 246, 0.05);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.toDoList input[type="text"]::placeholder {
+    color: #334155;
+}
+
+.toDoList input[type="text"]:focus {
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow:
+        inset 0 2px 6px rgba(0, 0, 0, 0.5),
+        0 0 14px rgba(59, 130, 246, 0.2);
+}
+
+/* ── SHARED BUTTON BASE ── */
+.toDoList button {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 12px;
+    border: 1px solid rgba(59, 130, 246, 0.5);
+    cursor: pointer;
+    position: relative;
+    transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+.toDoList button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.toDoList button:hover::after {
+    opacity: 1;
+}
+
+/* ── ADD BUTTON (primary) ── */
+#addItem {
+    padding: 11px 20px;
+    color: #ffffff;
+    background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
+    box-shadow:
+        0 4px 0 #060e1f,
+        0 6px 20px rgba(59, 130, 246, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    white-space: nowrap;
+}
+
+#addItem:hover {
+    background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+    box-shadow:
+        0 4px 0 #060e1f,
+        0 8px 28px rgba(59, 130, 246, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    transform: translateY(-2px);
+}
+
+#addItem:active {
+    transform: translateY(2px);
+    background: linear-gradient(180deg, #1d4ed8 0%, #1e3a8a 100%);
+    box-shadow:
+        0 1px 0 #060e1f,
+        0 2px 8px rgba(0, 0, 0, 0.5),
+        inset 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* ── UTILITY BUTTONS ROW ── */
+.toDoList .actionRow {
+    display: flex;
+    gap: 8px;
+}
+
+/* ── DELETE SELECTED / DELETE ALL (secondary) ── */
+#deleteSelected,
+#delete {
+    flex: 1;
+    padding: 10px 12px;
+    color: #94a3b8;
+    background: linear-gradient(180deg, #1c2d44 0%, #152034 100%);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 4px 0 #070f1d,
+        0 4px 10px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+#deleteSelected:hover,
+#delete:hover {
+    color: #e2e8f0;
+    background: linear-gradient(180deg, #263d57 0%, #1c2f46 100%);
+    box-shadow:
+        0 4px 0 #070f1d,
+        0 6px 14px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+#deleteSelected:active,
+#delete:active {
+    transform: translateY(2px);
+    box-shadow:
+        0 1px 0 #070f1d,
+        inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(180deg, #0e1d30 0%, #111f38 100%);
+}
+
+/* ── TASK LIST ── */
+#taskList {
+    width: 480px;
+    margin: 16px auto 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+}
+
+/* ── INDIVIDUAL TASK ITEM ── */
+#taskList li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 16px;
+    background: linear-gradient(135deg, #0d1f3c 0%, #0a1628 100%);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    border-radius: 14px;
+    box-shadow:
+        0 2px 0 #070f1d,
+        0 4px 12px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    font-weight: 600;
+    color: #c8d6e8;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+#taskList li:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+    box-shadow:
+        0 2px 0 #070f1d,
+        0 6px 16px rgba(59, 130, 246, 0.12);
+}
+
+/* Checked / completed state */
+#taskList li.completed {
+    opacity: 0.45;
+    text-decoration: line-through;
+    color: #475569;
+}
+
+/* ── CHECKBOX ── */
+.toDoList input[type="checkbox"],
+#taskList input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    accent-color: #3b82f6;
+    cursor: pointer;
+    border-radius: 4px;
+}
