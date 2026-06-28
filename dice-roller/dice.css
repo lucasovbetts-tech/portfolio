@@ -1,36 +1,23 @@
-/* =============================================
-     --bg-deep:     #070f1d
-     --bg-body:     #0c1935
-     --bg-surface:  #111f3a
-     --bg-btn:      #172436
-     --accent:      #3b82f6
-     --accent-dark: #1d4ed8
-     --text-main:   #e2e8f0
-     --text-dim:    #64748b
-============================================= */
-
 /* ── PANEL ── */
 .diceRoller {
     width: 360px;
-    margin: 48px auto 0;
+    margin: 48px auto 80px;
     padding: 28px 24px;
-    background: linear-gradient(160deg, #0d1f3c 0%, #0c1935 60%, #080f22 100%);
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    background: #0e0e0e;
+    border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: 24px;
     box-shadow:
-        0 0 0 1px rgba(59, 130, 246, 0.07),
-        0 0 24px rgba(59, 130, 246, 0.15),
-        0 32px 64px rgba(0, 0, 0, 0.55);
+        0 0 0 1px rgba(255, 255, 255, 0.02),
+        0 20px 48px rgba(0, 0, 0, 0.65);
     position: relative;
 }
 
-/* Top sheen */
 .diceRoller::before {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: 24px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 40%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
     pointer-events: none;
 }
 
@@ -42,8 +29,7 @@
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #3b82f6;
-    opacity: 0.8;
+    color: #555;
 }
 
 /* ── CONTROLS ROW ── */
@@ -57,7 +43,7 @@
     font-family: "Courier New", Courier, monospace;
     font-size: 13px;
     font-weight: 600;
-    color: #64748b;
+    color: #555;
     letter-spacing: 0.06em;
     white-space: nowrap;
     flex-shrink: 0;
@@ -71,14 +57,12 @@
     font-family: "Courier New", Courier, monospace;
     font-size: 16px;
     font-weight: 700;
-    color: #e2e8f0;
-    background: linear-gradient(135deg, #050d1c 0%, #0a1628 100%);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    color: #e8e8e8;
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
-    box-shadow:
-        inset 0 2px 6px rgba(0, 0, 0, 0.5),
-        0 0 8px rgba(59, 130, 246, 0.05);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5);
+    transition: border-color 0.2s ease;
     -moz-appearance: textfield;
 }
 
@@ -89,15 +73,12 @@
 }
 
 #numberOfDice::placeholder {
-    color: #334155;
+    color: #222;
 }
 
 #numberOfDice:focus {
     outline: none;
-    border-color: rgba(59, 130, 246, 0.5);
-    box-shadow:
-        inset 0 2px 6px rgba(0, 0, 0, 0.5),
-        0 0 14px rgba(59, 130, 246, 0.2);
+    border-color: rgba(255, 255, 255, 0.18);
 }
 
 /* ── ROLL BUTTON ── */
@@ -108,19 +89,19 @@
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #ffffff;
-    background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
-    border: 1px solid rgba(59, 130, 246, 0.5);
+    color: #0a0a0a;
+    background: #f0f0f0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 12px;
     cursor: pointer;
     white-space: nowrap;
     flex-shrink: 0;
-    box-shadow:
-        0 4px 0 #060e1f,
-        0 6px 20px rgba(59, 130, 246, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
     position: relative;
+    box-shadow:
+        0 2px 0 rgba(0, 0, 0, 0.8),
+        0 4px 16px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
 }
 
 #rollBtn::after {
@@ -128,19 +109,19 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.2s ease;
 }
 
 #rollBtn:hover {
-    background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+    background: #ffffff;
     box-shadow:
-        0 4px 0 #060e1f,
-        0 8px 28px rgba(59, 130, 246, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.18);
-    transform: translateY(-2px);
+        0 2px 0 rgba(0, 0, 0, 0.8),
+        0 8px 24px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    transform: translateY(-1px);
 }
 
 #rollBtn:hover::after {
@@ -148,12 +129,12 @@
 }
 
 #rollBtn:active {
-    transform: translateY(2px);
+    transform: translateY(1px);
+    background: #d8d8d8;
     box-shadow:
-        0 1px 0 #060e1f,
-        0 2px 8px rgba(0, 0, 0, 0.5),
-        inset 0 2px 4px rgba(0, 0, 0, 0.25);
-    background: linear-gradient(180deg, #1d4ed8 0%, #1e3a8a 100%);
+        0 1px 0 rgba(0, 0, 0, 0.8),
+        0 2px 6px rgba(0, 0, 0, 0.4),
+        inset 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* ── RESULT TEXT ── */
@@ -163,13 +144,13 @@
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.06em;
-    color: #64748b;
+    color: #333;
     text-transform: uppercase;
     min-height: 20px;
 }
 
 #diceRolled:not(:empty) {
-    color: #93c5fd;
+    color: #aaa;
 }
 
 /* ── DICE IMAGES GRID ── */
@@ -184,20 +165,20 @@
     width: 68px;
     height: 68px;
     border-radius: 12px;
-    border: 1px solid rgba(59, 130, 246, 0.2);
-    background: #050d1c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #080808;
     padding: 6px;
     box-shadow:
-        0 4px 0 #070f1d,
+        0 2px 0 rgba(0, 0, 0, 0.6),
         0 6px 14px rgba(0, 0, 0, 0.45),
-        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .diceRoller img:hover {
-    transform: translateY(-3px) rotate(6deg);
+    transform: translateY(-2px);
     box-shadow:
-        0 4px 0 #070f1d,
-        0 10px 20px rgba(59, 130, 246, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        0 2px 0 rgba(0, 0, 0, 0.6),
+        0 10px 20px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }

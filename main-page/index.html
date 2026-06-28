@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../main-page/style.css">
     <link rel="stylesheet" href="../main-page/mainPageStyle.css">
     <meta charset="UTF-8">
@@ -9,31 +12,52 @@
     <link rel="icon" href="../images/logo.png">
 </head>
 <body>
-    <header class="top">
-        <div class="branding">
-            <img class="logo" src="../images/logo.png" alt="Logo">
-            <h1>Lucas's portfolio</h1>
-        </div>
-        <nav class="headerLinks">
-            <a href="../main-page/index.html">Home</a>
-            <div class="dropdown">
-                <a href="">Projects</a>
-                <div class="dropdownContent">
-                    <a href="../Calculator/calculator.html">Calculator</a>
-                    <a href="../To-do-list/list.html">To do list</a>
-                    <a href="../Number-guessing-game/guess.html">Guessing game</a>
-                    <a href="../income-tax-calc/tax.html">Tax calculator</a>
-                    <a href="../dice-roller/dice.html">Dice roller</a>
-                </div>
+
+    <!-- Floating pill header -->
+    <header class="header-wrapper">
+        <div class="header-card" id="headerCard">
+            <div class="header-top-row">
+                <span class="header-brand">Lucas</span>
+                <button class="header-btn" id="headerToggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-dots">
+                        <span></span><span></span><span></span>
+                    </span>
+                    <em class="icon-close">✕</em>
+                </button>
             </div>
-            <a href="https://github.com/" target="_blank">Github</a>
-        </nav>
+
+            <nav class="header-nav" id="headerNav" aria-hidden="true">
+                <div class="header-nav-inner">
+                    <a href="../main-page/index.html" class="nav-pill">Home</a>
+
+                    <div class="nav-dropdown">
+                        <button class="nav-pill nav-pill--projects" id="projectsToggle" aria-expanded="false">
+                            Projects
+                            <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                                <path d="M2 4.5L6 8.5L10 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="projects-dropdown" id="projectsDropdown" aria-hidden="true">
+                            <div class="projects-dropdown-inner">
+                                <a href="../Calculator/calculator.html" class="dropdown-link">Calculator</a>
+                                <a href="../To-do-list/list.html" class="dropdown-link">To do list</a>
+                                <a href="../Number-guessing-game/guess.html" class="dropdown-link">Guessing game</a>
+                                <a href="../income-tax-calc/tax.html" class="dropdown-link">Tax calculator</a>
+                                <a href="../dice-roller/dice.html" class="dropdown-link">Dice roller</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://github.com/" target="_blank" class="nav-pill">Github</a>
+                </div>
+            </nav>
+        </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1 class="hero-title"><Lusc></Lusc>Lusca</h1>
+            <h1 class="hero-title">Lusca</h1>
             <p class="hero-subtitle">Programming stuff</p>
             <p class="hero-description"></p>
         </div>
@@ -42,9 +66,9 @@
     <!-- Skills Section -->
     <section class="skills" id="skills">
         <div class="section-container">
-            <h2 class="section-title">Skills</h2>
+            <h2 class="section-title reveal">Skills</h2>
             <div class="skills-grid">
-                <div class="skill-card">
+                <div class="skill-card reveal" style="--delay: 0ms">
                     <h3>Frontend</h3>
                     <ul>
                         <li>HTML</li>
@@ -52,7 +76,7 @@
                         <li>Javascript</li>
                     </ul>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card reveal" style="--delay: 80ms">
                     <h3>Backend</h3>
                     <ul>
                         <li>Python</li>
@@ -60,7 +84,7 @@
                         <li>?</li>
                     </ul>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card reveal" style="--delay: 160ms">
                     <h3>Tools</h3>
                     <ul>
                         <li>Git & GitHub</li>
@@ -75,31 +99,31 @@
     <!-- Projects Section -->
     <section class="projects" id="projects">
         <div class="section-container">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-title reveal">Featured Projects</h2>
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card reveal" style="--delay: 0ms">
                     <div class="project-header">
                         <h3>Calculator</h3>
                         <span class="project-tag">Web App</span>
                     </div>
                     <p class="project-description">A working calculator with exponent support and a simple, clean interface. Focused on smooth interactions and real-time results.</p>
-                    <a href="../Calculator/calculator.html" class="project-link">View Project →</a>
+                    <a href="../Calculator/calculator.html" class="project-link">View Project <span class="arrow">→</span></a>
                 </div>
-                <div class="project-card">
+                <div class="project-card reveal" style="--delay: 90ms">
                     <div class="project-header">
                         <h3>Tax calculator</h3>
-                        <span class="project-tag">Web app</span>
+                        <span class="project-tag">Web App</span>
                     </div>
                     <p class="project-description">A simple web app that quickly calculates income tax based on your earnings, helping you estimate your tax liability in seconds.</p>
-                    <a href="../income tax calc/tax.html" class="project-link">View Project →</a>
+                    <a href="../income-tax-calc/tax.html" class="project-link">View Project <span class="arrow">→</span></a>
                 </div>
-                <div class="project-card">
+                <div class="project-card reveal" style="--delay: 180ms">
                     <div class="project-header">
                         <h3>Guessing game</h3>
-                        <span class="project-tag">Web app</span>
+                        <span class="project-tag">Web App</span>
                     </div>
                     <p class="project-description">A simple number guessing game where you choose a difficulty and try to guess the randomly generated number.</p>
-                    <a href="../Number guessing game/guess.html" class="project-link">View Project →</a>
+                    <a href="../Number-guessing-game/guess.html" class="project-link">View Project <span class="arrow">→</span></a>
                 </div>
             </div>
         </div>
@@ -108,34 +132,123 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="section-container">
-            <h2 class="section-title">About Me</h2>
-            <p class="about-text">I like building clean, simple web projects that feel good to use. I focus on making things that work well and look nice, and I enjoy turning ideas into real, functional websites.
-</p>
+            <h2 class="section-title reveal">About Me</h2>
+            <p class="about-text reveal" style="--delay: 140ms">I like building clean, simple web projects that feel good to use. I focus on making things that work well and look nice, and I enjoy turning ideas into real, functional websites.</p>
         </div>
     </section>
-    
+
     <footer class="footer">
         <div class="line"></div>
-
-        <!-- Contact Section -->
-        <div class="contact-section">
+        <div class="contact-section reveal">
             <h3>Get In Touch</h3>
             <div class="contact-info">
-                <p>
-                    <a href="mailto:lobetts@outlook.com">📧 lobetts@outlook.com</a>
-                </p>
+                <p><a href="mailto:lobetts@outlook.com">lobetts@outlook.com</a></p>
                 <div class="social-links">
-                    <a href="https://github.com/" target="_blank" title="GitHub">GitHub</a>
+                    <a href="https://github.com/" target="_blank">GitHub</a>
                     <span>•</span>
-                    <a href="https://linkedin.com/" target="_blank" title="LinkedIn">LinkedIn</a>
+                    <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
                     <span>•</span>
-                    <a href="https://twitter.com/" target="_blank" title="Twitter">Twitter</a>
+                    <a href="https://twitter.com/" target="_blank">Twitter</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    
-    <script src="logic.js"></script>
+    <script>
+        // ── Header open/close ──────────────────────────
+        const headerCard    = document.getElementById('headerCard');
+        const headerToggle  = document.getElementById('headerToggle');
+        const headerNav     = document.getElementById('headerNav');
+
+        headerToggle.addEventListener('click', () => {
+            const isOpen = headerCard.classList.toggle('open');
+            headerToggle.setAttribute('aria-expanded', isOpen);
+            headerNav.setAttribute('aria-hidden', !isOpen);
+
+            // Collapse projects dropdown when closing the whole nav
+            if (!isOpen) collapseProjects();
+        });
+
+        // Click outside to close
+        document.addEventListener('click', (e) => {
+            if (!headerCard.contains(e.target)) {
+                headerCard.classList.remove('open');
+                headerToggle.setAttribute('aria-expanded', 'false');
+                headerNav.setAttribute('aria-hidden', 'true');
+                collapseProjects();
+            }
+        });
+
+        // ── Projects sub-accordion ─────────────────────
+        const projectsToggle   = document.getElementById('projectsToggle');
+        const projectsDropdown = document.getElementById('projectsDropdown');
+
+        function collapseProjects() {
+            projectsToggle.classList.remove('active');
+            projectsToggle.setAttribute('aria-expanded', 'false');
+            projectsDropdown.classList.remove('open');
+            projectsDropdown.setAttribute('aria-hidden', 'true');
+        }
+
+        projectsToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = projectsDropdown.classList.toggle('open');
+            projectsToggle.classList.toggle('active', isOpen);
+            projectsToggle.setAttribute('aria-expanded', isOpen);
+            projectsDropdown.setAttribute('aria-hidden', !isOpen);
+        });
+
+        // ── Hide header on scroll down ─────────────────
+        const headerWrapper = document.querySelector('.header-wrapper');
+        let lastScrollY = 0;
+        let scrollYWhenHidden = 0;
+        const HIDE_AFTER   = 80;   // px scrolled down before hiding
+        const SHOW_AFTER   = 120;  // px scrolled up before re-showing
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY <= HIDE_AFTER) {
+                // Near the top — always show
+                headerWrapper.classList.remove('header-hidden');
+                scrollYWhenHidden = 0;
+            } else if (currentScrollY > lastScrollY) {
+                // Scrolling down — hide once
+                if (!headerWrapper.classList.contains('header-hidden')) {
+                    scrollYWhenHidden = currentScrollY;
+                    headerWrapper.classList.add('header-hidden');
+                    headerCard.classList.remove('open');
+                    headerToggle.setAttribute('aria-expanded', 'false');
+                    headerNav.setAttribute('aria-hidden', 'true');
+                    collapseProjects();
+                }
+            } else if (currentScrollY < lastScrollY) {
+                // Scrolling up — only show after SHOW_AFTER px of upward travel
+                if (scrollYWhenHidden - currentScrollY >= SHOW_AFTER) {
+                    headerWrapper.classList.remove('header-hidden');
+                }
+            }
+
+            lastScrollY = currentScrollY;
+        }, { passive: true });
+
+        // ── Scroll reveal ──────────────────────────────
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (prefersReducedMotion) {
+            document.querySelectorAll('.reveal').forEach(el => el.classList.add('revealed'));
+        } else {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }
+    </script>
 </body>
 </html>

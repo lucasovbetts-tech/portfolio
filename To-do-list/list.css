@@ -1,41 +1,26 @@
-/* =============================================
-   TO DO LIST — Redesigned
-   Consistent with Calculator / Dice Roller:
-     --bg-deep:     #070f1d
-     --bg-body:     #0c1935
-     --bg-surface:  #111f3a
-     --bg-btn:      #172436
-     --accent:      #3b82f6
-     --accent-dark: #1d4ed8
-     --text-main:   #e2e8f0
-     --text-dim:    #64748b
-============================================= */
-
 /* ── PANEL ── */
 .toDoList {
     width: 480px;
     margin: 48px auto 0;
     padding: 28px 24px;
-    background: linear-gradient(160deg, #0d1f3c 0%, #0c1935 60%, #080f22 100%);
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    background: #0e0e0e;
+    border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: 24px;
     box-shadow:
-        0 0 0 1px rgba(59, 130, 246, 0.07),
-        0 0 24px rgba(59, 130, 246, 0.15),
-        0 32px 64px rgba(0, 0, 0, 0.55);
+        0 0 0 1px rgba(255, 255, 255, 0.02),
+        0 20px 48px rgba(0, 0, 0, 0.65);
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-/* Top sheen */
 .toDoList::before {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: 24px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 40%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
     pointer-events: none;
 }
 
@@ -47,8 +32,7 @@
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #3b82f6;
-    opacity: 0.8;
+    color: #555;
 }
 
 /* ── INPUT ROW ── */
@@ -65,26 +49,21 @@
     font-family: "Courier New", Courier, monospace;
     font-size: 15px;
     font-weight: 600;
-    color: #e2e8f0;
-    background: linear-gradient(135deg, #050d1c 0%, #0a1628 100%);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    color: #e8e8e8;
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
-    box-shadow:
-        inset 0 2px 6px rgba(0, 0, 0, 0.5),
-        0 0 8px rgba(59, 130, 246, 0.05);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5);
     outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color 0.2s ease;
 }
 
 .toDoList input[type="text"]::placeholder {
-    color: #334155;
+    color: #2a2a2a;
 }
 
 .toDoList input[type="text"]:focus {
-    border-color: rgba(59, 130, 246, 0.5);
-    box-shadow:
-        inset 0 2px 6px rgba(0, 0, 0, 0.5),
-        0 0 14px rgba(59, 130, 246, 0.2);
+    border-color: rgba(255, 255, 255, 0.18);
 }
 
 /* ── SHARED BUTTON BASE ── */
@@ -95,7 +74,6 @@
     letter-spacing: 0.06em;
     text-transform: uppercase;
     border-radius: 12px;
-    border: 1px solid rgba(59, 130, 246, 0.5);
     cursor: pointer;
     position: relative;
     transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
@@ -106,7 +84,7 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.2s ease;
@@ -119,31 +97,32 @@
 /* ── ADD BUTTON (primary) ── */
 #addItem {
     padding: 11px 20px;
-    color: #ffffff;
-    background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
+    color: #0a0a0a;
+    background: #f0f0f0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow:
-        0 4px 0 #060e1f,
-        0 6px 20px rgba(59, 130, 246, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        0 2px 0 rgba(0, 0, 0, 0.8),
+        0 4px 16px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
     white-space: nowrap;
 }
 
 #addItem:hover {
-    background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+    background: #ffffff;
     box-shadow:
-        0 4px 0 #060e1f,
-        0 8px 28px rgba(59, 130, 246, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.18);
-    transform: translateY(-2px);
+        0 2px 0 rgba(0, 0, 0, 0.8),
+        0 8px 24px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    transform: translateY(-1px);
 }
 
 #addItem:active {
-    transform: translateY(2px);
-    background: linear-gradient(180deg, #1d4ed8 0%, #1e3a8a 100%);
+    transform: translateY(1px);
+    background: #d8d8d8;
     box-shadow:
-        0 1px 0 #060e1f,
-        0 2px 8px rgba(0, 0, 0, 0.5),
-        inset 0 2px 4px rgba(0, 0, 0, 0.25);
+        0 1px 0 rgba(0, 0, 0, 0.8),
+        0 2px 6px rgba(0, 0, 0, 0.4),
+        inset 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* ── UTILITY BUTTONS ROW ── */
@@ -157,39 +136,39 @@
 #delete {
     flex: 1;
     padding: 10px 12px;
-    color: #94a3b8;
-    background: linear-gradient(180deg, #1c2d44 0%, #152034 100%);
-    border-color: rgba(255, 255, 255, 0.08);
+    color: #666;
+    background: #161616;
+    border: 1px solid rgba(255, 255, 255, 0.07);
     box-shadow:
-        0 4px 0 #070f1d,
-        0 4px 10px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        0 2px 0 rgba(0, 0, 0, 0.6),
+        0 4px 10px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 #deleteSelected:hover,
 #delete:hover {
-    color: #e2e8f0;
-    background: linear-gradient(180deg, #263d57 0%, #1c2f46 100%);
+    color: #e8e8e8;
+    background: #1e1e1e;
     box-shadow:
-        0 4px 0 #070f1d,
-        0 6px 14px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
+        0 2px 0 rgba(0, 0, 0, 0.6),
+        0 6px 14px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    transform: translateY(-1px);
 }
 
 #deleteSelected:active,
 #delete:active {
-    transform: translateY(2px);
+    transform: translateY(1px);
+    background: #111;
     box-shadow:
-        0 1px 0 #070f1d,
+        0 1px 0 rgba(0, 0, 0, 0.6),
         inset 0 2px 4px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(180deg, #0e1d30 0%, #111f38 100%);
 }
 
 /* ── TASK LIST ── */
 #taskList {
     width: 480px;
-    margin: 16px auto 0;
+    margin: 16px auto 80px;
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -203,32 +182,28 @@
     align-items: center;
     gap: 12px;
     padding: 13px 16px;
-    background: linear-gradient(135deg, #0d1f3c 0%, #0a1628 100%);
-    border: 1px solid rgba(59, 130, 246, 0.15);
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 14px;
     box-shadow:
-        0 2px 0 #070f1d,
-        0 4px 12px rgba(0, 0, 0, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+        0 2px 0 rgba(0, 0, 0, 0.6),
+        0 4px 12px rgba(0, 0, 0, 0.3);
     font-family: "Courier New", Courier, monospace;
     font-size: 14px;
     font-weight: 600;
-    color: #c8d6e8;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    color: #c8c8c8;
+    transition: border-color 0.2s ease, opacity 0.2s ease;
 }
 
 #taskList li:hover {
-    border-color: rgba(59, 130, 246, 0.3);
-    box-shadow:
-        0 2px 0 #070f1d,
-        0 6px 16px rgba(59, 130, 246, 0.12);
+    border-color: rgba(255, 255, 255, 0.12);
 }
 
 /* Checked / completed state */
 #taskList li.completed {
-    opacity: 0.45;
+    opacity: 0.35;
     text-decoration: line-through;
-    color: #475569;
+    color: #444;
 }
 
 /* ── CHECKBOX ── */
@@ -237,7 +212,7 @@
     width: 17px;
     height: 17px;
     flex-shrink: 0;
-    accent-color: #3b82f6;
+    accent-color: #e8e8e8;
     cursor: pointer;
     border-radius: 4px;
 }

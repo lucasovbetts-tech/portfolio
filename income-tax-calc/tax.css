@@ -2,7 +2,7 @@
 .container {
     display: flex;
     justify-content: center;
-    padding: 48px 16px 64px;
+    padding: 48px 16px 120px;
 }
 
 /* ── CARD ── */
@@ -10,13 +10,12 @@
     width: 100%;
     max-width: 440px;
     padding: 28px 24px;
-    background: linear-gradient(160deg, #0d1f3c 0%, #0c1935 60%, #080f22 100%);
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    background: #0e0e0e;
+    border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: 24px;
     box-shadow:
-        0 0 0 1px rgba(59, 130, 246, 0.07),
-        0 0 24px rgba(59, 130, 246, 0.15),
-        0 32px 64px rgba(0, 0, 0, 0.55);
+        0 0 0 1px rgba(255, 255, 255, 0.02),
+        0 20px 48px rgba(0, 0, 0, 0.65);
     position: relative;
 }
 
@@ -25,7 +24,7 @@
     position: absolute;
     inset: 0;
     border-radius: 24px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 40%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
     pointer-events: none;
 }
 
@@ -37,15 +36,14 @@
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #3b82f6;
-    opacity: 0.8;
+    color: #555;
 }
 
 .subtitle {
     margin: 0 0 20px;
     font-family: "Courier New", Courier, monospace;
     font-size: 11px;
-    color: #334155;
+    color: #333;
     letter-spacing: 0.08em;
 }
 
@@ -67,7 +65,7 @@
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.08em;
-    color: #64748b;
+    color: #555;
     text-transform: uppercase;
 }
 
@@ -75,21 +73,16 @@
 .input-wrap {
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #050d1c 0%, #0a1628 100%);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
-    box-shadow:
-        inset 0 2px 6px rgba(0, 0, 0, 0.5),
-        0 0 8px rgba(59, 130, 246, 0.05);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5);
+    transition: border-color 0.2s ease;
     overflow: hidden;
 }
 
 .input-wrap:focus-within {
-    border-color: rgba(59, 130, 246, 0.5);
-    box-shadow:
-        inset 0 2px 6px rgba(0, 0, 0, 0.5),
-        0 0 14px rgba(59, 130, 246, 0.2);
+    border-color: rgba(255, 255, 255, 0.18);
 }
 
 .input-prefix {
@@ -97,8 +90,7 @@
     font-family: "Courier New", Courier, monospace;
     font-size: 16px;
     font-weight: 700;
-    color: #3b82f6;
-    opacity: 0.7;
+    color: #555;
     user-select: none;
     flex-shrink: 0;
 }
@@ -110,7 +102,7 @@
     font-family: "Courier New", Courier, monospace;
     font-size: 16px;
     font-weight: 700;
-    color: #e2e8f0;
+    color: #e8e8e8;
     background: transparent;
     border: none;
     outline: none;
@@ -124,7 +116,7 @@
 }
 
 #income::placeholder {
-    color: #1e3a5f;
+    color: #222;
     font-weight: 400;
 }
 
@@ -150,16 +142,16 @@
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #ffffff;
-    background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
-    border: 1px solid rgba(59, 130, 246, 0.5);
+    color: #0a0a0a;
+    background: #f0f0f0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 12px;
     cursor: pointer;
     position: relative;
     box-shadow:
-        0 4px 0 #060e1f,
-        0 6px 20px rgba(59, 130, 246, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        0 2px 0 rgba(0, 0, 0, 0.8),
+        0 4px 16px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
     transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
 }
 
@@ -168,19 +160,19 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.2s ease;
 }
 
 .btn:hover {
-    background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+    background: #ffffff;
     box-shadow:
-        0 4px 0 #060e1f,
-        0 8px 28px rgba(59, 130, 246, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.18);
-    transform: translateY(-2px);
+        0 2px 0 rgba(0, 0, 0, 0.8),
+        0 8px 24px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    transform: translateY(-1px);
 }
 
 .btn:hover::after {
@@ -188,18 +180,18 @@
 }
 
 .btn:active {
-    transform: translateY(2px);
-    background: linear-gradient(180deg, #1d4ed8 0%, #1e3a8a 100%);
+    transform: translateY(1px);
+    background: #d8d8d8;
     box-shadow:
-        0 1px 0 #060e1f,
-        0 2px 8px rgba(0, 0, 0, 0.5),
-        inset 0 2px 4px rgba(0, 0, 0, 0.25);
+        0 1px 0 rgba(0, 0, 0, 0.8),
+        0 2px 6px rgba(0, 0, 0, 0.4),
+        inset 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* ── RESULTS BLOCK ── */
 .results {
     margin-top: 24px;
-    border-top: 1px solid rgba(59, 130, 246, 0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
     padding-top: 20px;
     display: flex;
     flex-direction: column;
@@ -211,12 +203,12 @@
     margin: 0 0 10px;
     font-family: "Courier New", Courier, monospace;
     font-size: 11px;
-    color: #475569;
+    color: #444;
     letter-spacing: 0.04em;
 }
 
 .pa-note.tapered {
-    color: #f59e0b;
+    color: #888;
 }
 
 /* ── RESULT ROWS ── */
@@ -228,52 +220,52 @@
     font-family: "Courier New", Courier, monospace;
     font-size: 13px;
     font-weight: 600;
-    color: #94a3b8;
+    color: #666;
     background: rgba(255, 255, 255, 0.02);
     border-radius: 8px;
     border: 1px solid transparent;
 }
 
 .result-row span:last-child {
-    color: #c8d6e8;
+    color: #aaa;
 }
 
 /* Subtotals */
 .result-row--total {
-    color: #64748b;
+    color: #555;
     border-color: rgba(255, 255, 255, 0.04);
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.02);
 }
 
 .result-row--total span:last-child {
     color: #f87171;
 }
 
-/* Take-home — highlight */
+/* Take-home — highlight row */
 .result-row--takehome {
-    background: linear-gradient(135deg, #0d2248 0%, #0b1d3f 100%);
-    border-color: rgba(59, 130, 246, 0.3);
+    background: #111;
+    border-color: rgba(255, 255, 255, 0.1);
     margin: 4px 0;
     padding: 12px 14px;
     font-size: 15px;
-    color: #cbd5e1;
+    color: #888;
 }
 
 .result-row--takehome span:last-child {
-    color: #34d399;
+    color: #e8e8e8;
     font-size: 16px;
 }
 
 /* Sub-rows (monthly/weekly) */
 .result-sub {
     font-size: 11px;
-    color: #334155;
+    color: #333;
     padding: 4px 14px;
     background: transparent;
 }
 
 .result-sub span:last-child {
-    color: #475569;
+    color: #444;
 }
 
 /* Effective rate */
@@ -283,7 +275,7 @@
 }
 
 .result-row--rate span:last-child {
-    color: #93c5fd;
+    color: #888;
 }
 
 /* ── BAND BREAKDOWN ── */
@@ -294,7 +286,7 @@
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #334155;
+    color: #333;
 }
 
 .band-breakdown {
@@ -311,22 +303,22 @@
     padding: 6px 10px;
     font-family: "Courier New", Courier, monospace;
     font-size: 11px;
-    background: rgba(255, 255, 255, 0.015);
+    background: rgba(255, 255, 255, 0.01);
     border-radius: 7px;
     border: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .band-label {
-    color: #475569;
+    color: #444;
 }
 
 .band-income {
-    color: #334155;
+    color: #333;
     text-align: right;
 }
 
 .band-tax {
-    color: #64748b;
+    color: #555;
     text-align: right;
     min-width: 70px;
 }
@@ -336,7 +328,7 @@
     margin: 14px 0 0;
     font-family: "Courier New", Courier, monospace;
     font-size: 10px;
-    color: #1e3a5f;
+    color: #222;
     line-height: 1.6;
     letter-spacing: 0.02em;
 }
