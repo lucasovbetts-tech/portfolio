@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="../Number-guessing-game/guess.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>Guessing Game — Lucas's Portfolio</title>
     <link rel="icon" href="../images/logo.png">
 </head>
 <body>
@@ -32,23 +32,40 @@
 
     <div class="game-container">
         <h1>Guess the Number</h1>
-        <p id="instructions" class="subtitle">Pick a difficulty | Easy (1) | Hard (2) | Impossible (3)</p>
+        <p id="instructions" class="subtitle">Choose a difficulty to start</p>
 
-        <input type="number" class="guess-input" id="guess-input" placeholder="Enter your guess">
+        <!-- Difficulty picker -->
+        <div class="difficulty-row">
+            <button class="diff-btn" data-diff="easy">Easy</button>
+            <button class="diff-btn" data-diff="hard">Hard</button>
+            <button class="diff-btn" data-diff="impossible">Impossible</button>
+        </div>
 
-        <button class="guess-btn" id="guess-btn">Guess</button>
-        <button class="guess-btn" id="reset-btn">Reset</button>
+        <!-- Guess input -->
+        <input
+            type="number"
+            class="guess-input"
+            id="guess-input"
+            placeholder="Enter your guess…"
+        >
 
+        <!-- Attempts tracker -->
+        <p id="attempts">Attempts: <span>0</span></p>
+
+        <!-- Action buttons -->
+        <div class="btn-row">
+            <button class="guess-btn" id="guess-btn">Guess</button>
+            <button class="guess-btn" id="reset-btn">Reset</button>
+        </div>
+
+        <!-- Result feedback -->
         <div class="result-box">
-            <p id="result" class="result-text">Your result will appear here</p>
+            <p id="result" class="result-text">Pick a difficulty and make your first guess</p>
         </div>
     </div>
 
-
-        <footer class="footer">
+    <footer class="footer">
         <div class="line"></div>
-
-        <!-- Contact Section -->
         <div class="contact-section">
             <h3>Get In Touch</h3>
             <div class="contact-info">
@@ -64,9 +81,9 @@
                 </div>
             </div>
         </div>
+        <div class="line"></div>
     </footer>
 
-    
     <script src="guess.js"></script>
 </body>
 </html>
