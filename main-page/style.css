@@ -66,6 +66,7 @@ body {
 /* Dropdown menu */
 .dropdown {
   position: relative;
+  z-index: 1000;
 }
 
 .dropdownContent {
