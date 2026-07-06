@@ -35,7 +35,7 @@
                         </div>
                     </div>
 
-                    <a href="https://github.com/" target="_blank" class="nav-pill">Github</a>
+                    <a href="https://github.com/lucasovbetts-tech?tab=repositories" target="_blank" class="nav-pill">Github</a>
                 </div>
             </nav>
         </div>
