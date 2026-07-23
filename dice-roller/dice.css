@@ -1,14 +1,12 @@
 /* ── PANEL ── */
 .diceRoller {
-    width: 360px;
-    margin: 48px auto 80px;
-    padding: 28px 24px;
-    background: #0e0e0e;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 24px;
-    box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.02),
-        0 20px 48px rgba(0, 0, 0, 0.65);
+    width: min(380px, calc(100vw - 32px));
+    margin: 56px auto 96px;
+    padding: 28px 26px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    box-shadow: var(--shadow-panel);
     position: relative;
 }
 
@@ -16,7 +14,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: 24px;
+    border-radius: var(--r-xl);
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
     pointer-events: none;
 }
@@ -24,12 +22,11 @@
 /* ── PANEL TITLE ── */
 .diceRoller h2 {
     margin: 0 0 20px;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: #555;
+    color: var(--text-4);
 }
 
 /* ── CONTROLS ROW ── */
@@ -40,11 +37,9 @@
 }
 
 .diceControls label {
-    font-family: "Courier New", Courier, monospace;
-    font-size: 13px;
-    font-weight: 600;
-    color: #555;
-    letter-spacing: 0.06em;
+    font-size: 0.84rem;
+    font-weight: 500;
+    color: var(--text-2);
     white-space: nowrap;
     flex-shrink: 0;
 }
@@ -54,15 +49,16 @@
     flex: 1;
     min-width: 0;
     padding: 11px 14px;
-    font-family: "Courier New", Courier, monospace;
+    font-family: var(--font-mono);
     font-size: 16px;
-    font-weight: 700;
-    color: #e8e8e8;
-    background: #0a0a0a;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5);
-    transition: border-color 0.2s ease;
+    font-weight: 600;
+    color: var(--text-1);
+    caret-color: var(--accent);
+    background: var(--bg-deep);
+    border: 1px solid var(--border);
+    border-radius: var(--r-btn);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+    transition: border-color var(--dur-2) ease, box-shadow var(--dur-2) ease;
     -moz-appearance: textfield;
 }
 
@@ -73,26 +69,25 @@
 }
 
 #numberOfDice::placeholder {
-    color: #222;
+    color: var(--text-4);
 }
 
 #numberOfDice:focus {
     outline: none;
-    border-color: rgba(255, 255, 255, 0.18);
+    border-color: var(--accent-border);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4), var(--ring);
 }
 
 /* ── ROLL BUTTON ── */
 #rollBtn {
-    padding: 11px 22px;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #0a0a0a;
-    background: #f0f0f0;
+    padding: 11px 24px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: -0.006em;
+    color: #101013;
+    background: #ececee;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 12px;
+    border-radius: var(--r-btn);
     cursor: pointer;
     white-space: nowrap;
     flex-shrink: 0;
@@ -101,7 +96,10 @@
         0 2px 0 rgba(0, 0, 0, 0.8),
         0 4px 16px rgba(0, 0, 0, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.5);
-    transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+    transition:
+        background var(--dur-2) var(--ease),
+        box-shadow var(--dur-2) var(--ease),
+        transform var(--dur-2) var(--ease-out);
 }
 
 #rollBtn::after {
@@ -112,7 +110,7 @@
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.2s ease;
+    transition: opacity var(--dur-2) ease;
 }
 
 #rollBtn:hover {
@@ -130,7 +128,7 @@
 
 #rollBtn:active {
     transform: translateY(1px);
-    background: #d8d8d8;
+    background: #d8d8da;
     box-shadow:
         0 1px 0 rgba(0, 0, 0, 0.8),
         0 2px 6px rgba(0, 0, 0, 0.4),
@@ -140,17 +138,17 @@
 /* ── RESULT TEXT ── */
 #diceRolled {
     margin: 20px 0 0;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    color: #333;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--text-4);
     text-transform: uppercase;
     min-height: 20px;
 }
 
 #diceRolled:not(:empty) {
-    color: #aaa;
+    color: var(--text-1);
 }
 
 /* ── DICE IMAGES GRID ── */
@@ -164,21 +162,16 @@
 .diceRoller img {
     width: 68px;
     height: 68px;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: #080808;
+    border-radius: var(--r-md);
+    border: 1px solid var(--border);
+    background: var(--bg-deep);
     padding: 6px;
-    box-shadow:
-        0 2px 0 rgba(0, 0, 0, 0.6),
-        0 6px 14px rgba(0, 0, 0, 0.45),
-        inset 0 1px 0 rgba(255, 255, 255, 0.04);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: var(--shadow-sm), var(--edge-light);
+    transition: transform var(--dur-2) var(--ease-out), box-shadow var(--dur-2) ease, border-color var(--dur-2) ease;
 }
 
 .diceRoller img:hover {
     transform: translateY(-2px);
-    box-shadow:
-        0 2px 0 rgba(0, 0, 0, 0.6),
-        0 10px 20px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-md), var(--edge-light);
 }

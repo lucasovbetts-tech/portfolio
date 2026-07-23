@@ -1,18 +1,16 @@
 /* ── CALCULATOR SHELL ── */
 .calculator {
-  background: #0e0e0e;
+  background: var(--surface);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 8px;
-  width: 320px;
+  width: min(340px, calc(100vw - 32px));
   padding: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
   overflow: hidden;
-  margin: 48px auto 80px;
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.02),
-    0 20px 48px rgba(0, 0, 0, 0.7);
+  margin: 56px auto 96px;
+  box-shadow: var(--shadow-panel);
   position: relative;
 }
 
@@ -20,80 +18,82 @@
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 24px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 40%);
+  border-radius: var(--r-xl);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
   pointer-events: none;
 }
 
 /* ── SCREEN ── */
 .calcScreen {
-  font-family: "Courier New", Courier, monospace;
-  font-weight: 700;
-  font-size: 32px;
-  letter-spacing: 0.02em;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 30px;
+  letter-spacing: 0.01em;
   text-align: right;
-  color: #e8e8e8;
-  caret-color: rgba(255, 255, 255, 0.5);
-  background: #0a0a0a;
-  height: 72px;
+  color: var(--text-1);
+  caret-color: var(--accent);
+  background: var(--bg-deep);
+  height: 76px;
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
   padding: 0 16px;
   grid-column: 1 / -1;
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6);
-  transition: border-color 0.2s ease;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5);
+  transition: border-color var(--dur-2) ease, box-shadow var(--dur-2) ease;
 }
 
 .calcScreen:focus {
   outline: none;
-  border-color: rgba(255, 255, 255, 0.16);
+  border-color: var(--accent-border);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5), var(--ring);
 }
 
 /* ── BASE BUTTON ── */
 .calcBtn {
-  background: #161616;
-  color: #aaa;
+  background: var(--surface-2);
+  color: var(--text-2);
   padding: 0;
-  height: 60px;
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  font-family: "Courier New", Courier, monospace;
-  font-weight: 700;
+  height: 58px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
   font-size: 17px;
   cursor: pointer;
   user-select: none;
   position: relative;
   overflow: hidden;
   box-shadow:
-    0 2px 0 rgba(0, 0, 0, 0.6),
-    0 4px 10px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    0 2px 0 rgba(0, 0, 0, 0.55),
+    0 4px 10px rgba(0, 0, 0, 0.35),
+    var(--edge-light);
   transition:
-    background 0.15s ease,
-    box-shadow 0.15s ease,
-    transform 0.1s ease,
-    color 0.15s ease;
+    background var(--dur-2) var(--ease),
+    box-shadow var(--dur-2) var(--ease),
+    transform var(--dur-2) var(--ease-out),
+    color var(--dur-2) var(--ease);
 }
 
 .calcBtn::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, transparent 60%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 60%);
   border-radius: inherit;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity var(--dur-2) ease;
 }
 
 .calcBtn:hover {
-  background: #1e1e1e;
-  color: #e8e8e8;
+  background: var(--surface-3);
+  color: var(--text-1);
   box-shadow:
-    0 2px 0 rgba(0, 0, 0, 0.6),
-    0 6px 16px rgba(0, 0, 0, 0.4),
+    0 2px 0 rgba(0, 0, 0, 0.55),
+    0 6px 16px rgba(0, 0, 0, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transform: translateY(-1px);
 }
@@ -103,55 +103,59 @@
 .calcBtn:active {
   transform: translateY(1px);
   box-shadow:
-    0 1px 0 rgba(0, 0, 0, 0.6),
-    0 2px 4px rgba(0, 0, 0, 0.4),
+    0 1px 0 rgba(0, 0, 0, 0.55),
+    0 2px 4px rgba(0, 0, 0, 0.35),
     inset 0 2px 4px rgba(0, 0, 0, 0.3);
-  background: #111;
+  background: var(--surface);
 }
 
 /* ── OPERATOR BUTTONS (÷ × − +) ── */
-.calcBtn:nth-child(4),
-.calcBtn:nth-child(8),
-.calcBtn:nth-child(12),
-.calcBtn:nth-child(16) {
-  background: #1a1a1a;
-  color: #c8c8c8;
-  border-color: rgba(255, 255, 255, 0.09);
+.calcBtn:nth-child(5),
+.calcBtn:nth-child(9),
+.calcBtn:nth-child(13),
+.calcBtn:nth-child(17) {
+  background: var(--accent-dim);
+  color: var(--accent-bright);
+  border-color: rgba(129, 140, 248, 0.22);
+  font-size: 18px;
   box-shadow:
-    0 2px 0 rgba(0, 0, 0, 0.6),
-    0 4px 12px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    0 2px 0 rgba(0, 0, 0, 0.55),
+    0 4px 12px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-.calcBtn:nth-child(4):hover,
-.calcBtn:nth-child(8):hover,
-.calcBtn:nth-child(12):hover,
-.calcBtn:nth-child(16):hover {
-  background: #242424;
-  color: #f0f0f0;
+.calcBtn:nth-child(5):hover,
+.calcBtn:nth-child(9):hover,
+.calcBtn:nth-child(13):hover,
+.calcBtn:nth-child(17):hover {
+  background: rgba(129, 140, 248, 0.2);
+  color: #c7d2fe;
+  border-color: var(--accent-border);
 }
 
-.calcBtn:nth-child(4):active,
-.calcBtn:nth-child(8):active,
-.calcBtn:nth-child(12):active,
-.calcBtn:nth-child(16):active {
-  background: #141414;
+.calcBtn:nth-child(5):active,
+.calcBtn:nth-child(9):active,
+.calcBtn:nth-child(13):active,
+.calcBtn:nth-child(17):active {
+  background: var(--accent-dim);
 }
 
 /* ── EQUALS BUTTON ── */
 .calcBtn:last-child {
-  background: #f0f0f0;
-  color: #0a0a0a;
+  background: #ececee;
+  color: #101013;
   border-color: rgba(255, 255, 255, 0.3);
   box-shadow:
     0 2px 0 rgba(0, 0, 0, 0.8),
     0 4px 16px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.5);
   font-size: 20px;
+  font-weight: 600;
 }
 
 .calcBtn:last-child:hover {
   background: #ffffff;
+  color: #101013;
   box-shadow:
     0 2px 0 rgba(0, 0, 0, 0.8),
     0 8px 24px rgba(0, 0, 0, 0.4),
@@ -159,35 +163,36 @@
 }
 
 .calcBtn:last-child:active {
-  background: #d8d8d8;
-  color: #0a0a0a;
+  background: #d8d8da;
+  color: #101013;
 }
 
 /* ── AC / ⌫ UTILITY BUTTONS ── */
 .calcBtn:nth-child(2),
 .calcBtn:nth-child(3) {
-  background: #131313;
-  color: #666;
-  font-size: 15px;
+  background: var(--surface);
+  color: var(--text-3);
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .calcBtn:nth-child(2):hover,
 .calcBtn:nth-child(3):hover {
-  color: #c8c8c8;
-  background: #1a1a1a;
+  color: var(--text-1);
+  background: var(--surface-2);
 }
 
 /* ── EXPONENT BUTTON ── */
 #exponentOn {
-  color: #777;
+  color: var(--text-3);
   font-size: 14px;
 }
 
 .exponentOn {
-  background: #222 !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
-  color: #e8e8e8 !important;
+  background: var(--accent-dim) !important;
+  border: 1px solid var(--accent-border) !important;
+  color: var(--accent-bright) !important;
   box-shadow:
-    0 2px 0 rgba(0, 0, 0, 0.6),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    0 2px 0 rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
 }

@@ -1,25 +1,23 @@
 /* ── GAME PANEL ── */
 .game-container {
-    width: 380px;
-    margin: 48px auto 80px;
-    padding: 28px 24px;
-    background: #0e0e0e;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 24px;
-    box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.02),
-        0 20px 48px rgba(0, 0, 0, 0.65);
+    width: min(400px, calc(100vw - 32px));
+    margin: 56px auto 96px;
+    padding: 28px 26px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    box-shadow: var(--shadow-panel);
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
 }
 
 .game-container::before {
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: 24px;
+    border-radius: var(--r-xl);
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
     pointer-events: none;
 }
@@ -27,21 +25,18 @@
 /* ── TITLE ── */
 .game-container h1 {
     margin: 0 0 2px;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: #555;
+    color: var(--text-4);
 }
 
 /* ── SUBTITLE ── */
 .subtitle {
     margin: 0;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 12px;
-    color: #333;
-    letter-spacing: 0.06em;
+    font-size: 0.84rem;
+    color: var(--text-3);
     line-height: 1.6;
 }
 
@@ -54,53 +49,51 @@
 
 .diff-btn {
     flex: 1;
-    padding: 9px 6px;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #555;
-    background: #161616;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 10px;
+    padding: 10px 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--text-3);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--r-btn);
     cursor: pointer;
     position: relative;
     box-shadow:
-        0 2px 0 rgba(0, 0, 0, 0.6),
-        0 4px 10px rgba(0, 0, 0, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+        0 2px 0 rgba(0, 0, 0, 0.55),
+        0 4px 10px rgba(0, 0, 0, 0.3),
+        var(--edge-light);
     transition:
-        background 0.15s ease,
-        box-shadow 0.15s ease,
-        transform 0.1s ease,
-        color 0.15s ease,
-        border-color 0.15s ease;
+        background var(--dur-2) var(--ease),
+        box-shadow var(--dur-2) var(--ease),
+        transform var(--dur-2) var(--ease-out),
+        color var(--dur-2) var(--ease),
+        border-color var(--dur-2) var(--ease);
 }
 
 .diff-btn:hover {
-    color: #c8c8c8;
-    background: #1e1e1e;
+    color: var(--text-1);
+    background: var(--surface-3);
     transform: translateY(-1px);
 }
 
 .diff-btn:active {
     transform: translateY(1px);
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.6), inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.55), inset 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Active difficulty — white pill, same across all levels */
+/* Active difficulty — accent pill */
 .diff-btn.active,
 .diff-btn[data-diff="easy"].active,
 .diff-btn[data-diff="hard"].active,
 .diff-btn[data-diff="impossible"].active {
-    color: #0a0a0a;
-    background: #f0f0f0;
-    border-color: rgba(255, 255, 255, 0.3);
+    color: var(--accent-bright);
+    background: var(--accent-dim);
+    border-color: var(--accent-border);
     box-shadow:
-        0 2px 0 rgba(0, 0, 0, 0.8),
-        0 4px 14px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        0 2px 0 rgba(0, 0, 0, 0.7),
+        0 4px 14px rgba(129, 140, 248, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 /* ── GUESS INPUT ── */
@@ -108,17 +101,18 @@
     width: 100%;
     box-sizing: border-box;
     padding: 12px 14px;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 22px;
-    font-weight: 700;
+    font-family: var(--font-mono);
+    font-size: 20px;
+    font-weight: 600;
     text-align: center;
-    color: #e8e8e8;
-    background: #0a0a0a;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5);
+    color: var(--text-1);
+    caret-color: var(--accent);
+    background: var(--bg-deep);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
     outline: none;
-    transition: border-color 0.2s ease;
+    transition: border-color var(--dur-2) ease, box-shadow var(--dur-2) ease;
     -moz-appearance: textfield;
 }
 
@@ -129,32 +123,36 @@
 }
 
 .guess-input::placeholder {
-    color: #222;
+    color: var(--text-4);
+    font-family: var(--font-sans);
     font-size: 14px;
     font-weight: 400;
 }
 
 .guess-input:focus {
-    border-color: rgba(255, 255, 255, 0.18);
+    border-color: var(--accent-border);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4), var(--ring);
 }
 
 /* ── BUTTON ROW ── */
 .btn-row {
     display: flex;
-    gap: 8px;
+    gap: 10px;
 }
 
 /* ── SHARED BUTTON BASE ── */
 .guess-btn {
-    font-family: "Courier New", Courier, monospace;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: -0.006em;
+    border-radius: var(--r-btn);
     cursor: pointer;
     position: relative;
-    transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+    transition:
+        background var(--dur-2) var(--ease),
+        box-shadow var(--dur-2) var(--ease),
+        transform var(--dur-2) var(--ease-out),
+        color var(--dur-2) var(--ease);
 }
 
 .guess-btn::after {
@@ -165,7 +163,7 @@
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.2s ease;
+    transition: opacity var(--dur-2) ease;
 }
 
 .guess-btn:hover::after {
@@ -176,8 +174,8 @@
 #guess-btn {
     flex: 2;
     padding: 12px;
-    color: #0a0a0a;
-    background: #f0f0f0;
+    color: #101013;
+    background: #ececee;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow:
         0 2px 0 rgba(0, 0, 0, 0.8),
@@ -196,7 +194,7 @@
 
 #guess-btn:active {
     transform: translateY(1px);
-    background: #d8d8d8;
+    background: #d8d8da;
     box-shadow:
         0 1px 0 rgba(0, 0, 0, 0.8),
         0 2px 6px rgba(0, 0, 0, 0.4),
@@ -207,30 +205,30 @@
 #reset-btn {
     flex: 1;
     padding: 12px;
-    color: #666;
-    background: #161616;
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    color: var(--text-3);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
     box-shadow:
-        0 2px 0 rgba(0, 0, 0, 0.6),
-        0 4px 10px rgba(0, 0, 0, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+        0 2px 0 rgba(0, 0, 0, 0.55),
+        0 4px 10px rgba(0, 0, 0, 0.3),
+        var(--edge-light);
 }
 
 #reset-btn:hover {
-    color: #e8e8e8;
-    background: #1e1e1e;
+    color: var(--text-1);
+    background: var(--surface-3);
     box-shadow:
-        0 2px 0 rgba(0, 0, 0, 0.6),
-        0 6px 14px rgba(0, 0, 0, 0.35),
+        0 2px 0 rgba(0, 0, 0, 0.55),
+        0 6px 14px rgba(0, 0, 0, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.06);
     transform: translateY(-1px);
 }
 
 #reset-btn:active {
     transform: translateY(1px);
-    background: #111;
+    background: var(--surface);
     box-shadow:
-        0 1px 0 rgba(0, 0, 0, 0.6),
+        0 1px 0 rgba(0, 0, 0, 0.55),
         inset 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -238,41 +236,46 @@
 .result-box {
     margin-top: 4px;
     padding: 14px 16px;
-    background: #0a0a0a;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+    background: var(--bg-deep);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.35);
     min-height: 52px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: border-color 0.3s ease;
+    transition: border-color var(--dur-3) ease;
 }
 
 .result-text {
     margin: 0;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 13px;
-    font-weight: 600;
-    color: #333;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-3);
     text-align: center;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.01em;
     line-height: 1.5;
-    transition: color 0.3s ease;
+    transition: color var(--dur-3) ease;
 }
 
 /* Result states */
 .result-box.correct {
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(74, 222, 128, 0.35);
 }
 
 .result-box.correct .result-text {
-    color: #e8e8e8;
+    color: var(--success);
 }
 
 .result-box.higher .result-text,
 .result-box.lower .result-text {
-    color: #888;
+    color: var(--accent-bright);
+}
+
+.result-box.higher,
+.result-box.lower {
+    border-color: rgba(129, 140, 248, 0.25);
 }
 
 .result-box.wrong {
@@ -280,21 +283,21 @@
 }
 
 .result-box.wrong .result-text {
-    color: #f87171;
+    color: var(--danger);
 }
 
 /* ── ATTEMPTS COUNTER ── */
 #attempts {
     margin: 0;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 11px;
+    font-size: 0.7rem;
     font-weight: 600;
-    letter-spacing: 0.08em;
-    color: #2a2a2a;
+    letter-spacing: 0.1em;
+    color: var(--text-4);
     text-align: center;
     text-transform: uppercase;
 }
 
 #attempts span {
-    color: #888;
+    font-family: var(--font-mono);
+    color: var(--text-2);
 }

@@ -36,6 +36,14 @@
     const headerSlot = document.getElementById('site-header');
     if (headerSlot) headerSlot.outerHTML = HEADER_HTML;
 
+    // Highlight the current page in the nav (presentation only)
+    document.querySelectorAll('.headerLinks a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('..') && location.pathname.endsWith(href.slice(2))) {
+            link.classList.add('active');
+        }
+    });
+
     const footerSlot = document.getElementById('site-footer');
     if (footerSlot) footerSlot.outerHTML = FOOTER_HTML;
 })();

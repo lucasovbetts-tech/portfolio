@@ -2,20 +2,18 @@
 .container {
     display: flex;
     justify-content: center;
-    padding: 48px 16px 120px;
+    padding: 56px 16px 120px;
 }
 
 /* ── CARD ── */
 .tax-card {
     width: 100%;
-    max-width: 440px;
-    padding: 28px 24px;
-    background: #0e0e0e;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 24px;
-    box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.02),
-        0 20px 48px rgba(0, 0, 0, 0.65);
+    max-width: 460px;
+    padding: 28px 26px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    box-shadow: var(--shadow-panel);
     position: relative;
 }
 
@@ -23,28 +21,25 @@
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: 24px;
+    border-radius: var(--r-xl);
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
     pointer-events: none;
 }
 
 /* ── HEADING ── */
 .tax-card h2 {
-    margin: 0 0 2px;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
+    margin: 0 0 4px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: #555;
+    color: var(--text-4);
 }
 
 .subtitle {
-    margin: 0 0 20px;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 11px;
-    color: #333;
-    letter-spacing: 0.08em;
+    margin: 0 0 22px;
+    font-size: 0.8rem;
+    color: var(--text-3);
 }
 
 /* ── FORM ── */
@@ -57,40 +52,38 @@
 .input-row {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 7px;
 }
 
 .input-row label {
-    font-family: "Courier New", Courier, monospace;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    color: #555;
-    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-2);
 }
 
 /* Input with £ prefix */
 .input-wrap {
     display: flex;
     align-items: center;
-    background: #0a0a0a;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5);
-    transition: border-color 0.2s ease;
+    background: var(--bg-deep);
+    border: 1px solid var(--border);
+    border-radius: var(--r-btn);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+    transition: border-color var(--dur-2) ease, box-shadow var(--dur-2) ease;
     overflow: hidden;
 }
 
 .input-wrap:focus-within {
-    border-color: rgba(255, 255, 255, 0.18);
+    border-color: var(--accent-border);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4), var(--ring);
 }
 
 .input-prefix {
     padding: 0 12px;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 16px;
-    font-weight: 700;
-    color: #555;
+    font-family: var(--font-mono);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-3);
     user-select: none;
     flex-shrink: 0;
 }
@@ -99,10 +92,11 @@
     flex: 1;
     min-width: 0;
     padding: 12px 14px 12px 0;
-    font-family: "Courier New", Courier, monospace;
+    font-family: var(--font-mono);
     font-size: 16px;
-    font-weight: 700;
-    color: #e8e8e8;
+    font-weight: 600;
+    color: var(--text-1);
+    caret-color: var(--accent);
     background: transparent;
     border: none;
     outline: none;
@@ -116,43 +110,43 @@
 }
 
 #income::placeholder {
-    color: #222;
+    color: var(--text-4);
+    font-family: var(--font-sans);
     font-weight: 400;
 }
 
 /* ── ERROR ── */
 .input-error {
     margin: -4px 0 0;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 12px;
-    color: #f87171;
-    letter-spacing: 0.04em;
+    font-size: 0.8rem;
+    color: var(--danger);
 }
 
 /* ── CALCULATE BUTTON ── */
 .actions {
-    margin-top: 4px;
+    margin-top: 6px;
 }
 
 .btn {
     width: 100%;
     padding: 13px;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #0a0a0a;
-    background: #f0f0f0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: -0.006em;
+    color: #101013;
+    background: #ececee;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 12px;
+    border-radius: var(--r-btn);
     cursor: pointer;
     position: relative;
     box-shadow:
         0 2px 0 rgba(0, 0, 0, 0.8),
         0 4px 16px rgba(0, 0, 0, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.5);
-    transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+    transition:
+        background var(--dur-2) var(--ease),
+        box-shadow var(--dur-2) var(--ease),
+        transform var(--dur-2) var(--ease-out);
 }
 
 .btn::after {
@@ -163,7 +157,7 @@
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.2s ease;
+    transition: opacity var(--dur-2) ease;
 }
 
 .btn:hover {
@@ -181,7 +175,7 @@
 
 .btn:active {
     transform: translateY(1px);
-    background: #d8d8d8;
+    background: #d8d8da;
     box-shadow:
         0 1px 0 rgba(0, 0, 0, 0.8),
         0 2px 6px rgba(0, 0, 0, 0.4),
@@ -189,9 +183,13 @@
 }
 
 /* ── RESULTS BLOCK ── */
+.results[hidden] {
+    display: none;
+}
+
 .results {
     margin-top: 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: 1px solid var(--border);
     padding-top: 20px;
     display: flex;
     flex-direction: column;
@@ -201,14 +199,12 @@
 /* Personal allowance note */
 .pa-note {
     margin: 0 0 10px;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 11px;
-    color: #444;
-    letter-spacing: 0.04em;
+    font-size: 0.78rem;
+    color: var(--text-4);
 }
 
 .pa-note.tapered {
-    color: #888;
+    color: var(--accent-bright);
 }
 
 /* ── RESULT ROWS ── */
@@ -217,76 +213,79 @@
     justify-content: space-between;
     align-items: center;
     padding: 8px 12px;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 13px;
-    font-weight: 600;
-    color: #666;
+    font-size: 0.84rem;
+    font-weight: 450;
+    color: var(--text-3);
     background: rgba(255, 255, 255, 0.02);
-    border-radius: 8px;
+    border-radius: var(--r-sm);
     border: 1px solid transparent;
 }
 
 .result-row span:last-child {
-    color: #aaa;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--text-2);
 }
 
 /* Subtotals */
 .result-row--total {
-    color: #555;
-    border-color: rgba(255, 255, 255, 0.04);
+    color: var(--text-3);
+    border-color: rgba(255, 255, 255, 0.05);
     background: rgba(255, 255, 255, 0.02);
 }
 
 .result-row--total span:last-child {
-    color: #f87171;
+    color: var(--danger);
 }
 
 /* Take-home — highlight row */
 .result-row--takehome {
-    background: #111;
-    border-color: rgba(255, 255, 255, 0.1);
+    background: var(--surface-2);
+    border-color: var(--border-strong);
     margin: 4px 0;
     padding: 12px 14px;
-    font-size: 15px;
-    color: #888;
+    font-size: 0.925rem;
+    font-weight: 500;
+    color: var(--text-2);
 }
 
 .result-row--takehome span:last-child {
-    color: #e8e8e8;
-    font-size: 16px;
+    color: var(--success);
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 /* Sub-rows (monthly/weekly) */
 .result-sub {
-    font-size: 11px;
-    color: #333;
+    font-size: 0.76rem;
+    color: var(--text-4);
     padding: 4px 14px;
     background: transparent;
 }
 
 .result-sub span:last-child {
-    color: #444;
+    font-size: 0.76rem;
+    color: var(--text-3);
 }
 
 /* Effective rate */
 .result-row--rate {
     margin-top: 2px;
-    border-color: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.05);
 }
 
 .result-row--rate span:last-child {
-    color: #888;
+    color: var(--accent-bright);
 }
 
 /* ── BAND BREAKDOWN ── */
 .breakdown-header {
-    margin: 12px 0 6px;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 11px;
-    font-weight: 700;
+    margin: 14px 0 6px;
+    font-size: 0.68rem;
+    font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #333;
+    color: var(--text-4);
 }
 
 .band-breakdown {
@@ -300,35 +299,36 @@
     grid-template-columns: 1fr auto auto;
     gap: 8px;
     align-items: center;
-    padding: 6px 10px;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 11px;
-    background: rgba(255, 255, 255, 0.01);
-    border-radius: 7px;
-    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 7px 10px;
+    font-size: 0.76rem;
+    background: rgba(255, 255, 255, 0.015);
+    border-radius: var(--r-sm);
+    border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .band-label {
-    color: #444;
+    color: var(--text-3);
 }
 
 .band-income {
-    color: #333;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-4);
     text-align: right;
 }
 
 .band-tax {
-    color: #555;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-2);
     text-align: right;
     min-width: 70px;
 }
 
 /* ── DISCLAIMER ── */
 .disclaimer {
-    margin: 14px 0 0;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 10px;
-    color: #222;
+    margin: 16px 0 0;
+    font-size: 0.72rem;
+    color: var(--text-4);
     line-height: 1.6;
-    letter-spacing: 0.02em;
 }
