@@ -40,7 +40,7 @@
   background:
     linear-gradient(rgba(8, 8, 8, 0.86), rgba(8, 8, 8, 0.94)),
     url('../images/setup.JPEG');
-  background-size: auto, 1950px 450px;
+  background-size: auto, cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
@@ -55,8 +55,8 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 100px;
-  background: linear-gradient(transparent, #080808);
+  height: 260px;
+  background: linear-gradient(transparent, #050505);
   pointer-events: none;
   z-index: 0;
 }
@@ -200,7 +200,6 @@ section {
 .projects {
   padding: 104px 20px;
   background: #050505;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -317,6 +316,47 @@ section {
   transform: translateX(4px);
 }
 
+/* View-all button under the featured grid */
+.view-all-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 44px;
+}
+
+.view-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 26px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #888;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.view-all-btn .arrow {
+  display: inline-block;
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.view-all-btn:hover {
+  color: #f0f0f0;
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.view-all-btn:hover .arrow {
+  transform: translateX(4px);
+}
+
 /* ── About section ────────────────────────────────── */
 .about {
   padding: 104px 20px;
@@ -337,7 +377,6 @@ section {
 @media (max-width: 768px) {
   .hero {
     padding: 130px 20px 80px;
-    background-size: auto, cover;
   }
 
   .hero-title { font-size: 2.8em; }

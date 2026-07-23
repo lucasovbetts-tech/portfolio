@@ -19,9 +19,21 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Lusca</h1>
-            <p class="hero-subtitle">Programming stuff</p>
+            <h1 class="hero-title">Lucas Betts</h1>
+            <p class="hero-subtitle">Software developer focused on JavaScript, APIs and full-stack web development.</p>
             <p class="hero-description"></p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="section-container">
+            <h2 class="section-title reveal">Best Projects</h2>
+            <!-- Cards generated from shared/projects-data.js (featured only) -->
+            <div class="projects-grid" id="featuredGrid"></div>
+            <div class="view-all-wrap reveal" style="--delay: 240ms">
+                <a href="../projects-page/projects.html" class="view-all-btn">View all projects <span class="arrow">→</span></a>
+            </div>
         </div>
     </section>
 
@@ -58,39 +70,6 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <div class="section-container">
-            <h2 class="section-title reveal">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card reveal" style="--delay: 0ms">
-                    <div class="project-header">
-                        <h3>Calculator</h3>
-                        <span class="project-tag">Web App</span>
-                    </div>
-                    <p class="project-description">A working calculator with exponent support and a simple, clean interface. Focused on smooth interactions and real-time results.</p>
-                    <a href="../Calculator/calculator.html" class="project-link">View Project <span class="arrow">→</span></a>
-                </div>
-                <div class="project-card reveal" style="--delay: 90ms">
-                    <div class="project-header">
-                        <h3>Tax calculator</h3>
-                        <span class="project-tag">Web App</span>
-                    </div>
-                    <p class="project-description">A simple web app that quickly calculates income tax based on your earnings, helping you estimate your tax liability in seconds.</p>
-                    <a href="../income-tax-calc/tax.html" class="project-link">View Project <span class="arrow">→</span></a>
-                </div>
-                <div class="project-card reveal" style="--delay: 180ms">
-                    <div class="project-header">
-                        <h3>Macro tracker</h3>
-                        <span class="project-tag">Web App</span>
-                    </div>
-                    <p class="project-description">A macro tracking app for logging daily meals, with entries saved to local storage so you can switch between days and pick up right where you left off.</p>
-                    <a href="https://lucasovbetts-tech.github.io/Macro-tracker/Tracker-app/" target="_blank" class="project-link">View Project <span class="arrow">→</span></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- About Section -->
     <section class="about" id="about">
         <div class="section-container">
@@ -102,8 +81,23 @@
     <!-- Footer (injected by header-footer.js) -->
     <div id="site-footer"></div>
 
+    <script src="../shared/projects-data.js"></script>
     <script src="../main-page/header-footer.js"></script>
     <script>
+        // ── Featured project cards ─────────────────────
+        document.getElementById('featuredGrid').innerHTML = PROJECTS
+            .filter(p => p.featured)
+            .map((p, i) => `
+                <div class="project-card reveal" style="--delay: ${i * 90}ms">
+                    <div class="project-header">
+                        <h3>${p.name}</h3>
+                        <span class="project-tag">${p.tag}</span>
+                    </div>
+                    <p class="project-description">${p.description}</p>
+                    <a href="${p.url}"${p.external ? ' target="_blank"' : ''} class="project-link">View Project <span class="arrow">→</span></a>
+                </div>`)
+            .join('');
+
         // ── Scroll reveal ──────────────────────────────
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

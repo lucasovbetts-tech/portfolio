@@ -16,24 +16,12 @@
                 <div class="header-nav-inner">
                     <a href="../main-page/index.html" class="nav-pill">Home</a>
 
-                    <div class="nav-dropdown">
-                        <button class="nav-pill nav-pill--projects" id="projectsToggle" aria-expanded="false">
-                            Projects
-                            <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                                <path d="M2 4.5L6 8.5L10 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </button>
-                        <div class="projects-dropdown" id="projectsDropdown" aria-hidden="true">
-                            <div class="projects-dropdown-inner">
-                                <a href="../Calculator/calculator.html" class="dropdown-link">Calculator</a>
-                                <a href="../To-do-list/list.html" class="dropdown-link">To do list</a>
-                                <a href="../Number-guessing-game/guess.html" class="dropdown-link">Guessing game</a>
-                                <a href="../income-tax-calc/tax.html" class="dropdown-link">Tax calculator</a>
-                                <a href="../dice-roller/dice.html" class="dropdown-link">Dice roller</a>
-                                <a href="https://lucasovbetts-tech.github.io/Macro-tracker/Tracker-app/" target="_blank" class="dropdown-link">Macro tracker</a>
-                            </div>
-                        </div>
-                    </div>
+                    <a href="../projects-page/projects.html" class="nav-pill">
+                        Projects
+                        <svg class="chevron chevron--link" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                            <path d="M4.5 2L8.5 6L4.5 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
 
                     <a href="https://github.com/lucasovbetts-tech?tab=repositories" target="_blank" class="nav-pill">Github</a>
                 </div>
@@ -74,9 +62,6 @@
         const isOpen = headerCard.classList.toggle('open');
         headerToggle.setAttribute('aria-expanded', isOpen);
         headerNav.setAttribute('aria-hidden', !isOpen);
-
-        // Collapse projects dropdown when closing the whole nav
-        if (!isOpen) collapseProjects();
     });
 
     // Click outside to close
@@ -85,27 +70,7 @@
             headerCard.classList.remove('open');
             headerToggle.setAttribute('aria-expanded', 'false');
             headerNav.setAttribute('aria-hidden', 'true');
-            collapseProjects();
         }
-    });
-
-    // ── Projects sub-accordion ─────────────────────
-    const projectsToggle   = document.getElementById('projectsToggle');
-    const projectsDropdown = document.getElementById('projectsDropdown');
-
-    function collapseProjects() {
-        projectsToggle.classList.remove('active');
-        projectsToggle.setAttribute('aria-expanded', 'false');
-        projectsDropdown.classList.remove('open');
-        projectsDropdown.setAttribute('aria-hidden', 'true');
-    }
-
-    projectsToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isOpen = projectsDropdown.classList.toggle('open');
-        projectsToggle.classList.toggle('active', isOpen);
-        projectsToggle.setAttribute('aria-expanded', isOpen);
-        projectsDropdown.setAttribute('aria-hidden', !isOpen);
     });
 
     // ── Hide header on scroll down ─────────────────
@@ -130,7 +95,6 @@
                 headerCard.classList.remove('open');
                 headerToggle.setAttribute('aria-expanded', 'false');
                 headerNav.setAttribute('aria-hidden', 'true');
-                collapseProjects();
             }
         } else if (currentScrollY < lastScrollY) {
             // Scrolling up — only show after SHOW_AFTER px of upward travel

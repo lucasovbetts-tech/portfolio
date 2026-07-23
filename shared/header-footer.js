@@ -7,17 +7,7 @@
         </div>
         <nav class="headerLinks">
             <a href="../main-page/index.html">Home</a>
-            <div class="dropdown">
-                <a href="">Projects</a>
-                <div class="dropdownContent">
-                    <a href="../Calculator/calculator.html">Calculator</a>
-                    <a href="../To-do-list/list.html">To do list</a>
-                    <a href="../Number-guessing-game/guess.html">Guessing game</a>
-                    <a href="../income-tax-calc/tax.html">Tax calculator</a>
-                    <a href="../dice-roller/dice.html">Dice roller</a>
-                    <a href="https://lucasovbetts-tech.github.io/Macro-tracker/Tracker-app/" target="_blank">Macro tracker</a>
-                </div>
-            </div>
+            <a href="../projects-page/projects.html">Projects</a>
             <a href="https://github.com/" target="_blank">Github</a>
         </nav>
     </header>`;

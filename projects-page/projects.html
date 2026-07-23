@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../main-page/style.css">
+    <link rel="stylesheet" href="../projects-page/projects.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — Lucas's portfolio</title>
+    <link rel="icon" href="../images/logo.png">
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="projects-main">
+        <section class="projects-intro">
+            <h1 class="projects-title">Projects</h1>
+            <p class="projects-subtitle">Everything I've built so far, click through to try them live.</p>
+        </section>
+
+        <section class="projects-list">
+            <!-- Cards generated from shared/projects-data.js by projects.js -->
+            <div class="cards-grid" id="cardsGrid"></div>
+        </section>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="../shared/projects-data.js"></script>
+    <script src="../shared/header-footer.js"></script>
+    <script src="../projects-page/projects.js"></script>
+</body>
+</html>
