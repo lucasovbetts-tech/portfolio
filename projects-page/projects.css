@@ -22,7 +22,7 @@
   font-weight: 700;
   letter-spacing: -0.035em;
   margin: 0 0 14px 0;
-  background: linear-gradient(115deg, #ffffff 55%, var(--accent-bright) 100%);
+  background: var(--gradient-title);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -191,14 +191,14 @@
 }
 
 .proj-btn--primary {
-  background: #ececee;
-  color: #101013;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   border: 1px solid transparent;
   box-shadow: var(--shadow-sm);
 }
 
 .proj-btn--primary:hover {
-  background: #ffffff;
+  background: var(--btn-primary-bg-hover);
   box-shadow: var(--shadow-md);
 }
 

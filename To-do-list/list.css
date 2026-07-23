@@ -49,7 +49,7 @@
     background: var(--bg-deep);
     border: 1px solid var(--border);
     border-radius: var(--r-btn);
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 2px 6px var(--press-soft);
     outline: none;
     transition: border-color var(--dur-2) ease, box-shadow var(--dur-2) ease;
 }
@@ -60,7 +60,7 @@
 
 .toDoList input[type="text"]:focus {
     border-color: var(--accent-border);
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4), var(--ring);
+    box-shadow: inset 0 2px 6px var(--press-soft), var(--ring);
 }
 
 /* ── SHARED BUTTON BASE ── */
@@ -97,33 +97,33 @@
 /* ── ADD BUTTON (primary) ── */
 #addItem {
     padding: 11px 22px;
-    color: #101013;
-    background: #ececee;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--btn-primary-text);
+    background: var(--btn-primary-bg);
+    border: 1px solid var(--btn-primary-border);
     box-shadow:
-        0 2px 0 rgba(0, 0, 0, 0.8),
-        0 4px 16px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        0 2px 0 var(--press-hard),
+        0 4px 16px var(--press-soft),
+        var(--btn-primary-sheen);
     white-space: nowrap;
     font-weight: 600;
 }
 
 #addItem:hover {
-    background: #ffffff;
+    background: var(--btn-primary-bg-hover);
     box-shadow:
-        0 2px 0 rgba(0, 0, 0, 0.8),
-        0 8px 24px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        0 2px 0 var(--press-hard),
+        0 8px 24px var(--press-soft),
+        var(--btn-primary-sheen);
     transform: translateY(-1px);
 }
 
 #addItem:active {
     transform: translateY(1px);
-    background: #d8d8da;
+    background: var(--btn-primary-bg-active);
     box-shadow:
-        0 1px 0 rgba(0, 0, 0, 0.8),
-        0 2px 6px rgba(0, 0, 0, 0.4),
-        inset 0 2px 4px rgba(0, 0, 0, 0.15);
+        0 1px 0 var(--press-hard),
+        0 2px 6px var(--press-soft),
+        var(--inset-press);
 }
 
 /* ── UTILITY BUTTONS ROW ── */
@@ -141,8 +141,8 @@
     background: var(--surface-2);
     border: 1px solid var(--border);
     box-shadow:
-        0 2px 0 rgba(0, 0, 0, 0.55),
-        0 4px 10px rgba(0, 0, 0, 0.3),
+        0 2px 0 var(--press-mid),
+        0 4px 10px var(--press-soft),
         var(--edge-light);
 }
 
@@ -152,8 +152,8 @@
     background: rgba(248, 113, 113, 0.08);
     border-color: rgba(248, 113, 113, 0.3);
     box-shadow:
-        0 2px 0 rgba(0, 0, 0, 0.55),
-        0 6px 14px rgba(0, 0, 0, 0.3),
+        0 2px 0 var(--press-mid),
+        0 6px 14px var(--press-soft),
         var(--edge-light);
     transform: translateY(-1px);
 }
@@ -163,8 +163,8 @@
     transform: translateY(1px);
     background: rgba(248, 113, 113, 0.05);
     box-shadow:
-        0 1px 0 rgba(0, 0, 0, 0.55),
-        inset 0 2px 4px rgba(0, 0, 0, 0.3);
+        0 1px 0 var(--press-mid),
+        var(--inset-press);
 }
 
 /* ── TASK LIST ── */

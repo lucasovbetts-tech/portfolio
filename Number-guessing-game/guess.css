@@ -60,8 +60,8 @@
     cursor: pointer;
     position: relative;
     box-shadow:
-        0 2px 0 rgba(0, 0, 0, 0.55),
-        0 4px 10px rgba(0, 0, 0, 0.3),
+        0 2px 0 var(--press-mid),
+        0 4px 10px var(--press-soft),
         var(--edge-light);
     transition:
         background var(--dur-2) var(--ease),
@@ -79,7 +79,7 @@
 
 .diff-btn:active {
     transform: translateY(1px);
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.55), inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 0 var(--press-mid), var(--inset-press);
 }
 
 /* Active difficulty — accent pill */
@@ -91,8 +91,8 @@
     background: var(--accent-dim);
     border-color: var(--accent-border);
     box-shadow:
-        0 2px 0 rgba(0, 0, 0, 0.7),
-        0 4px 14px rgba(129, 140, 248, 0.15),
+        0 2px 0 var(--press-hard),
+        0 4px 14px var(--accent-dim),
         inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
@@ -110,7 +110,7 @@
     background: var(--bg-deep);
     border: 1px solid var(--border);
     border-radius: var(--r-md);
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 2px 6px var(--press-soft);
     outline: none;
     transition: border-color var(--dur-2) ease, box-shadow var(--dur-2) ease;
     -moz-appearance: textfield;
@@ -131,7 +131,7 @@
 
 .guess-input:focus {
     border-color: var(--accent-border);
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4), var(--ring);
+    box-shadow: inset 0 2px 6px var(--press-soft), var(--ring);
 }
 
 /* ── BUTTON ROW ── */
@@ -174,31 +174,31 @@
 #guess-btn {
     flex: 2;
     padding: 12px;
-    color: #101013;
-    background: #ececee;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--btn-primary-text);
+    background: var(--btn-primary-bg);
+    border: 1px solid var(--btn-primary-border);
     box-shadow:
-        0 2px 0 rgba(0, 0, 0, 0.8),
-        0 4px 16px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        0 2px 0 var(--press-hard),
+        0 4px 16px var(--press-soft),
+        var(--btn-primary-sheen);
 }
 
 #guess-btn:hover {
-    background: #ffffff;
+    background: var(--btn-primary-bg-hover);
     box-shadow:
-        0 2px 0 rgba(0, 0, 0, 0.8),
-        0 8px 24px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        0 2px 0 var(--press-hard),
+        0 8px 24px var(--press-soft),
+        var(--btn-primary-sheen);
     transform: translateY(-1px);
 }
 
 #guess-btn:active {
     transform: translateY(1px);
-    background: #d8d8da;
+    background: var(--btn-primary-bg-active);
     box-shadow:
-        0 1px 0 rgba(0, 0, 0, 0.8),
-        0 2px 6px rgba(0, 0, 0, 0.4),
-        inset 0 2px 4px rgba(0, 0, 0, 0.15);
+        0 1px 0 var(--press-hard),
+        0 2px 6px var(--press-soft),
+        var(--inset-press);
 }
 
 /* ── RESET BUTTON (secondary) ── */
@@ -209,8 +209,8 @@
     background: var(--surface-2);
     border: 1px solid var(--border);
     box-shadow:
-        0 2px 0 rgba(0, 0, 0, 0.55),
-        0 4px 10px rgba(0, 0, 0, 0.3),
+        0 2px 0 var(--press-mid),
+        0 4px 10px var(--press-soft),
         var(--edge-light);
 }
 
@@ -218,8 +218,8 @@
     color: var(--text-1);
     background: var(--surface-3);
     box-shadow:
-        0 2px 0 rgba(0, 0, 0, 0.55),
-        0 6px 14px rgba(0, 0, 0, 0.3),
+        0 2px 0 var(--press-mid),
+        0 6px 14px var(--press-soft),
         inset 0 1px 0 rgba(255, 255, 255, 0.06);
     transform: translateY(-1px);
 }
@@ -228,8 +228,8 @@
     transform: translateY(1px);
     background: var(--surface);
     box-shadow:
-        0 1px 0 rgba(0, 0, 0, 0.55),
-        inset 0 2px 4px rgba(0, 0, 0, 0.3);
+        0 1px 0 var(--press-mid),
+        var(--inset-press);
 }
 
 /* ── RESULT BOX ── */
@@ -239,7 +239,7 @@
     background: var(--bg-deep);
     border: 1px solid var(--border);
     border-radius: var(--r-md);
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.35);
+    box-shadow: var(--inset-input);
     min-height: 52px;
     display: flex;
     align-items: center;

@@ -38,7 +38,7 @@
   padding: 190px 24px 150px;
   text-align: center;
   background:
-    linear-gradient(rgba(9, 9, 11, 0.82), rgba(9, 9, 11, 0.93)),
+    var(--hero-overlay),
     url('../images/setup.JPEG');
   background-size: auto, cover;
   background-position: center;
@@ -74,7 +74,7 @@
   font-weight: 700;
   line-height: 1.05;
   color: var(--text-1);
-  background: linear-gradient(115deg, #ffffff 45%, var(--accent-bright) 100%);
+  background: var(--gradient-title);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -190,7 +190,7 @@ section {
 .skill-card li {
   color: var(--text-2);
   padding: 10px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--border);
   font-size: 0.93rem;
   font-weight: 450;
   transition: color var(--dur-2) ease;
@@ -208,7 +208,7 @@ section {
 .projects {
   padding: 110px 24px;
   background: var(--bg-deep);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--border);
 }
 
 .projects-grid {

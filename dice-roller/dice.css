@@ -57,7 +57,7 @@
     background: var(--bg-deep);
     border: 1px solid var(--border);
     border-radius: var(--r-btn);
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 2px 6px var(--press-soft);
     transition: border-color var(--dur-2) ease, box-shadow var(--dur-2) ease;
     -moz-appearance: textfield;
 }
@@ -75,7 +75,7 @@
 #numberOfDice:focus {
     outline: none;
     border-color: var(--accent-border);
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4), var(--ring);
+    box-shadow: inset 0 2px 6px var(--press-soft), var(--ring);
 }
 
 /* ── ROLL BUTTON ── */
@@ -84,18 +84,18 @@
     font-size: 0.875rem;
     font-weight: 600;
     letter-spacing: -0.006em;
-    color: #101013;
-    background: #ececee;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--btn-primary-text);
+    background: var(--btn-primary-bg);
+    border: 1px solid var(--btn-primary-border);
     border-radius: var(--r-btn);
     cursor: pointer;
     white-space: nowrap;
     flex-shrink: 0;
     position: relative;
     box-shadow:
-        0 2px 0 rgba(0, 0, 0, 0.8),
-        0 4px 16px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        0 2px 0 var(--press-hard),
+        0 4px 16px var(--press-soft),
+        var(--btn-primary-sheen);
     transition:
         background var(--dur-2) var(--ease),
         box-shadow var(--dur-2) var(--ease),
@@ -114,11 +114,11 @@
 }
 
 #rollBtn:hover {
-    background: #ffffff;
+    background: var(--btn-primary-bg-hover);
     box-shadow:
-        0 2px 0 rgba(0, 0, 0, 0.8),
-        0 8px 24px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        0 2px 0 var(--press-hard),
+        0 8px 24px var(--press-soft),
+        var(--btn-primary-sheen);
     transform: translateY(-1px);
 }
 
@@ -128,11 +128,11 @@
 
 #rollBtn:active {
     transform: translateY(1px);
-    background: #d8d8da;
+    background: var(--btn-primary-bg-active);
     box-shadow:
-        0 1px 0 rgba(0, 0, 0, 0.8),
-        0 2px 6px rgba(0, 0, 0, 0.4),
-        inset 0 2px 4px rgba(0, 0, 0, 0.15);
+        0 1px 0 var(--press-hard),
+        0 2px 6px var(--press-soft),
+        var(--inset-press);
 }
 
 /* ── RESULT TEXT ── */
