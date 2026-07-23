@@ -3,48 +3,44 @@ const submitBtn = document.getElementById(`guess-btn`);
 const instr = document.getElementById(`instructions`);
 const result = document.getElementById(`result`);
 const resetBtn = document.getElementById(`reset-btn`);
+const buttons = document.querySelectorAll('.diff-btn');
 let maxNum;
 let minNum = 1;
 let count = 0;
 let randomNum;
 let gameStarted = false;
 
+
+// setting difficulty
+
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        if (!gameStarted) {
+            const difficulty = button.dataset.diff;
+
+            if (difficulty === "easy") {
+                instr.textContent = "Pick a number between 1 and 100";
+                maxNum = 100;
+            } else if (difficulty === "hard") {
+                instr.textContent = "Pick a number between 1 and 500";
+                maxNum = 500;
+            } else if (difficulty === "impossible") {
+                instr.textContent = "Pick a number between 1 and 1,000,000";
+                maxNum = 1000000;
+            }
+
+            randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+            count = 0;
+            result.textContent = "";
+            input.value = "";
+            gameStarted = true;
+        }
+    });
+});
+
 submitBtn.onclick = function() {
     let value = Number(input.value);
 
-// setting difficulty
-    if (!gameStarted) {
-        if (input.value === "1") {
-            instr.textContent = "Pick a number between 1 and 100";
-            maxNum = 100;
-            randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
-            count = 0;
-            result.textContent = "";
-            input.value = "";
-            gameStarted = true;
-            return;
-        }
-        else if (input.value === "2") {
-            instr.textContent = "Pick a number between 1 and 500";
-            maxNum = 500;
-            randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
-            count = 0;
-            result.textContent = "";
-            input.value = "";
-            gameStarted = true;
-            return;
-        }
-        else if (input.value === "3") {
-            instr.textContent = "Pick a number between 1 and 1,000,000";
-            maxNum = 1000000;
-            randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
-            count = 0;
-            result.textContent = "";
-            input.value = "";
-            gameStarted = true;
-            return;
-        }
-    }
 // comparing the user input to the random number
 
      if (!value) return;
@@ -70,5 +66,5 @@ submitBtn.onclick = function() {
 
 resetBtn.onclick = function() {
     gameStarted = false;
-    instr.textContent = "Pick a difficulty | Easy (1) | Hard (2) | Impossible (3)"
+    instr.textContent = "Choose a difficulty to start"
 }
