@@ -33,6 +33,13 @@ const PROJECTS = [
         featured: true,
     },
     {
+        name: 'Investment calculator',
+        tag: 'Web App',
+        description: 'Projects investment growth from a starting balance, yearly return, and time horizon, with selectable compounding frequency and monthly or yearly contributions.',
+        url: '../investment-calc/invest.html',
+        codeUrl: 'https://github.com/lucasovbetts-tech/portfolio/tree/main/investment-calc',
+    },
+    {
         name: 'Dice roller',
         tag: 'Game',
         description: 'Roll any number of dice at once and get the total, with every die drawn on screen so you can see each result.',

@@ -195,16 +195,22 @@ function runCalculation(e) {
 
   const input = document.getElementById("income");
   const errorEl = document.getElementById("inputError");
-  const gross = parseFloat(input.value);
+  let gross = parseFloat(input.value);
 
   // Validation
   if (isNaN(gross) || gross < 0) {
-    errorEl.textContent = "Please enter a valid annual income.";
+    errorEl.textContent = "Please enter a valid income.";
     errorEl.hidden = false;
     document.getElementById("results").hidden = true;
     return;
   }
   errorEl.hidden = true;
+
+  // Monthly income → convert to annual
+  const frequency = document.getElementById("incomeFrequency").value;
+  if (frequency === "monthly") {
+    gross = gross * 12;
+  }
 
   if (gross === 0) {
     // Zero income — show zeroed results

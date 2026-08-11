@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../main-page/style.css">
+    <link rel="stylesheet" href="../investment-calc/invest.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Calculator — Lucas's portfolio</title>
+    <link rel="icon" href="../images/logo.png">
+    <script src="../shared/theme.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="container">
+        <section class="invest-card" aria-labelledby="invest-title">
+
+            <h2 id="invest-title">Investment Calculator</h2>
+            <p class="subtitle">Compound growth over time</p>
+
+            <form id="invest-form">
+                <div class="input-row">
+                    <label for="startingBalance">Starting balance</label>
+                    <div class="input-wrap">
+                        <span class="input-prefix">£</span>
+                        <input
+                            id="startingBalance"
+                            type="number"
+                            min="0"
+                            step="0.01"
+                            placeholder="e.g. 1000"
+                            autocomplete="off"
+                        />
+                    </div>
+                </div>
+
+                <div class="input-row">
+                    <label for="annualReturn">Return per year</label>
+                    <div class="input-wrap">
+                        <input
+                            id="annualReturn"
+                            type="number"
+                            min="0"
+                            step="0.1"
+                            placeholder="e.g. 7"
+                            autocomplete="off"
+                        />
+                        <span class="input-suffix">%</span>
+                    </div>
+                </div>
+
+                <div class="input-row">
+                    <label for="yearsInvested">Years invested</label>
+                    <div class="input-wrap">
+                        <input
+                            id="yearsInvested"
+                            type="number"
+                            min="1"
+                            step="1"
+                            placeholder="e.g. 20"
+                            autocomplete="off"
+                        />
+                    </div>
+                </div>
+
+                <div class="input-row">
+                    <label for="compoundFrequency">Compound frequency</label>
+                    <select id="compoundFrequency" class="js-dropdown">
+                        <option value="1">Yearly</option>
+                        <option value="2">Half-yearly</option>
+                        <option value="4">Quarterly</option>
+                        <option value="12" selected>Monthly</option>
+                        <option value="365">Daily</option>
+                    </select>
+                </div>
+
+                <div class="input-row">
+                    <label for="contribution">Additional contribution</label>
+                    <div class="input-wrap">
+                        <span class="input-prefix">£</span>
+                        <input
+                            id="contribution"
+                            type="number"
+                            min="0"
+                            step="0.01"
+                            placeholder="e.g. 100"
+                            autocomplete="off"
+                        />
+                    </div>
+                    <div class="radio-row" role="radiogroup" aria-label="Contribution frequency">
+                        <label class="radio-option">
+                            <input type="radio" name="contribFrequency" value="monthly" checked>
+                            <span class="radio-circle"></span>
+                            <span class="radio-label">Every month</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="contribFrequency" value="yearly">
+                            <span class="radio-circle"></span>
+                            <span class="radio-label">Every year</span>
+                        </label>
+                    </div>
+                </div>
+
+                <p id="inputError" class="input-error" hidden></p>
+
+                <div class="actions">
+                    <button id="calcBtn" type="submit" class="btn">Calculate</button>
+                </div>
+            </form>
+
+            <!-- Results — shown after calculation -->
+            <div id="results" class="results" aria-live="polite" hidden>
+                <div class="result-row result-row--final">
+                    <span>Final balance</span>
+                    <span id="finalBalance">£0.00</span>
+                </div>
+                <div class="result-row">
+                    <span>Total contributed</span>
+                    <span id="totalContributed">£0.00</span>
+                </div>
+                <div class="result-row">
+                    <span>Interest earned</span>
+                    <span id="interestEarned">£0.00</span>
+                </div>
+
+                <div class="chart-block">
+                    <div class="chart-header">
+                        <span class="chart-title">Growth over time</span>
+                        <div class="chart-legend">
+                            <span class="legend-item"><span class="legend-key legend-key--balance"></span>Balance</span>
+                            <span class="legend-item"><span class="legend-key legend-key--contributed"></span>Contributed</span>
+                        </div>
+                    </div>
+                    <div class="chart-wrap" id="chartWrap"></div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="../shared/header-footer.js"></script>
+    <script src="../shared/dropdown.js"></script>
+    <script src="invest.js"></script>
+</body>
+</html>

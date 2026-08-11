@@ -588,6 +588,99 @@ img {
   text-decoration: none !important;
 }
 
+/* ── Custom dropdown (shared/dropdown.js) ─────────── */
+.dd {
+  position: relative;
+}
+
+.dd-native {
+  display: none;
+}
+
+.dd-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+}
+
+.dd-chevron {
+  flex-shrink: 0;
+  opacity: 0.5;
+  transition: transform var(--dur-3) var(--ease-out);
+}
+
+.dd.open .dd-chevron {
+  transform: rotate(180deg);
+}
+
+.dd-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 100%;
+  background: var(--glass);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-lg);
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 50;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px) scale(0.97);
+  transform-origin: top center;
+  transition:
+    opacity var(--dur-2) var(--ease),
+    transform var(--dur-2) var(--ease-out),
+    visibility 0s linear var(--dur-2);
+}
+
+.dd.open .dd-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition:
+    opacity var(--dur-2) var(--ease),
+    transform var(--dur-2) var(--ease-out),
+    visibility 0s;
+}
+
+.dd-option {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  border-radius: var(--r-sm);
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-2);
+  cursor: pointer;
+  text-align: left;
+  white-space: nowrap;
+  transition: background var(--dur-1) ease, color var(--dur-1) ease;
+}
+
+.dd-option:hover,
+.dd-option:focus-visible {
+  background: var(--wash);
+  color: var(--text-1);
+  outline: none;
+}
+
+.dd-option[aria-selected="true"] {
+  background: var(--accent-dim);
+  color: var(--accent-bright);
+}
+
 /* ── Focus states (keyboard navigation) ───────────── */
 :focus-visible {
   outline: 2px solid var(--accent);

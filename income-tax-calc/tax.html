@@ -23,7 +23,7 @@
 
             <form id="tax-form">
                 <div class="input-row">
-                    <label for="income">Annual gross income</label>
+                    <label for="income">Gross income</label>
                     <div class="input-wrap">
                         <span class="input-prefix">£</span>
                         <input
@@ -34,6 +34,10 @@
                             placeholder="e.g. 30000"
                             autocomplete="off"
                         />
+                        <select id="incomeFrequency" class="js-dropdown" aria-label="Income frequency">
+                            <option value="yearly" selected>per year</option>
+                            <option value="monthly">per month</option>
+                        </select>
                     </div>
                 </div>
                 <p id="inputError" class="input-error" hidden></p>
@@ -94,6 +98,7 @@
     <div id="site-footer"></div>
 
     <script src="../shared/header-footer.js"></script>
+    <script src="../shared/dropdown.js"></script>
     <script src="tax.js"></script>
 </body>
 </html>
