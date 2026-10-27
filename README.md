@@ -1,4 +1,4 @@
-# Lucas Betts — Portfolio
+# Lucas Betts - Portfolio
 
 My personal portfolio site, built with plain HTML, CSS and JavaScript (no frameworks or build step).
 
