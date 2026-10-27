@@ -25,12 +25,6 @@ Larger projects live in their own repos and are linked from the site. Smaller on
 | [Guessing game](projects/Number-guessing-game/) | Number guessing game with three difficulty levels |
 | [Dice roller](projects/dice-roller/) | Roll any number of dice and see each result |
 
-Projects in their own repos:
-
-- [SkinLab](https://github.com/lucasovbetts-tech/CS2-searching-website): Counter-Strike 2 skin explorer with a backend, SQL database and APIs
-- [Macro tracker](https://github.com/lucasovbetts-tech/Macro-tracker): Daily meal and macro logging app
-- [No Fullscreen](https://github.com/lucasovbetts-tech/No-Fullscreen): Python Windows utility that stops browsers going fullscreen
-
 ## Structure
 
 ```
