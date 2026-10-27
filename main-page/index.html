@@ -21,7 +21,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1 class="hero-title">Lucas Betts</h1>
-            <p class="hero-subtitle">Software developer focused on JavaScript, APIs and full-stack web development.</p>
+            <p class="hero-subtitle">Aspiring software engineer learning Python, C++ and machine learning</p>
             <p class="hero-description"></p>
         </div>
     </section>
@@ -42,32 +42,31 @@
     <section class="skills" id="skills">
         <div class="section-container">
             <h2 class="section-title reveal">Skills</h2>
+            <h3 class="skills-label reveal">Main focus</h3>
             <div class="skills-grid">
                 <div class="skill-card reveal" style="--delay: 0ms">
-                    <h3>Frontend</h3>
-                    <ul>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>JavaScript</li>
-                    </ul>
+                    <h4>Python</h4>
+                    <p>My main language. I've used it to build No Fullscreen, a Windows utility built on Win32 event hooks.</p>
                 </div>
                 <div class="skill-card reveal" style="--delay: 80ms">
-                    <h3>Backend</h3>
-                    <ul>
-                        <li>Python</li>
-                        <li>SQL</li>
-                        <li>APIs</li>
-                    </ul>
+                    <h4>C++</h4>
+                    <p>Currently learning the fundamentals, with my first projects on the way.</p>
                 </div>
                 <div class="skill-card reveal" style="--delay: 160ms">
-                    <h3>Tools</h3>
-                    <ul>
-                        <li>Git & GitHub</li>
-                        <li>VS Code</li>
-                        <li>Claude code</li>
-                    </ul>
+                    <h4>Machine learning</h4>
+                    <p>Just getting started, building on what I know in Python.</p>
                 </div>
             </div>
+
+            <h3 class="skills-label reveal">Also built projects with</h3>
+            <ul class="skill-tags reveal">
+                <li>JavaScript</li>
+                <li>HTML & CSS</li>
+                <li>SQL</li>
+                <li>Backend & APIs</li>
+                <li>Git & GitHub</li>
+                <li>VS Code</li>
+            </ul>
         </div>
     </section>
 
@@ -75,7 +74,7 @@
     <section class="about" id="about">
         <div class="section-container">
             <h2 class="section-title reveal">About Me</h2>
-            <p class="about-text reveal" style="--delay: 140ms">I'm a sixth-form student aiming for a Software Engineering Degree Apprenticeship. I enjoy building full-stack web applications and learning backend development by creating real projects.</p>
+            <p class="about-text reveal" style="--delay: 140ms">I'm a sixth-form student aiming for a Software Engineering Degree Apprenticeship. I'm focused on learning Python, C++ and machine learning, and I learn best by building real projects. Along the way I've also built several web apps, including a full-stack site with a backend, SQL database and APIs.</p>
         </div>
     </section>
 
@@ -95,7 +94,9 @@
                         <span class="project-tag">${p.tag}</span>
                     </div>
                     <p class="project-description">${p.description}</p>
-                    <a href="${p.url}"${p.external ? ' target="_blank"' : ''} class="project-link">View Project <span class="arrow">→</span></a>
+                    ${p.url
+                        ? `<a href="${p.url}"${p.external ? ' target="_blank"' : ''} class="project-link">View Project <span class="arrow">→</span></a>`
+                        : `<a href="${p.codeUrl}" target="_blank" class="project-link">View Code <span class="arrow">→</span></a>`}
                 </div>`)
             .join('');
 

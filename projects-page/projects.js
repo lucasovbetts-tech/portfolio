@@ -9,8 +9,10 @@
             </div>
             <p class="proj-desc">${p.description}</p>
             <div class="proj-actions">
-                <a href="${p.url}"${p.external ? ' target="_blank"' : ''} class="proj-btn proj-btn--primary">View Project <span class="arrow">→</span></a>
-                ${p.codeUrl
+                ${p.url
+                    ? `<a href="${p.url}"${p.external ? ' target="_blank"' : ''} class="proj-btn proj-btn--primary">View Project <span class="arrow">→</span></a>`
+                    : `<a href="${p.codeUrl}" target="_blank" class="proj-btn proj-btn--primary">View Code <span class="arrow">→</span></a>`}
+                ${!p.url ? '' : p.codeUrl
                     ? `<a href="${p.codeUrl}" target="_blank" class="proj-btn proj-btn--ghost">View Code</a>`
                     : '<a class="proj-btn proj-btn--ghost">View Code</a>'}
             </div>

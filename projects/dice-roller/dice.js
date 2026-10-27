@@ -9,7 +9,7 @@ diceBtn.onclick = function() {
 
     for (let i = 0; i < (diceInput.value); i++) {
         let diceRoll = Math.floor(Math.random() * 6) + 1;
-        html += `<img src="../images/dice${diceRoll}.png">`;
+        html += `<img src="../../images/dice${diceRoll}.png">`;
         total += diceRoll;
     } 
     diceImages.innerHTML = html;
